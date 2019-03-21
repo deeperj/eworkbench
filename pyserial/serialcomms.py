@@ -7,10 +7,22 @@ import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox, QPlainTextEdit, 
                              QMenu, QPushButton, QRadioButton, QVBoxLayout, QWidget, QSlider)
+import serial_rx_tx
+import serial.tools.list_ports
+
 
 class Window(QWidget):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
+
+        for m in serial.tools.list_ports.comports():
+            if 'VID:PID=1F00:2012' in m.usb_info():
+                port=m.device
+
+        self.serialPort = serial_rx_tx.SerialPort()
+        # Register the callback above with the serial port object
+        self.serialPort.RegisterReceiveCallback(self.OnReceiveSerialData)
+        self.serialPort.Open(port,115200)
 
         grid = QGridLayout()
         grid.addWidget(self.createSlider(), 0, 0)
@@ -22,8 +34,19 @@ class Window(QWidget):
         self.setWindowTitle("STM Terminal")
         self.resize(400, 300)
 
+        self.destroyed.connect(self.OnWindowClosing)
+
+    # serial data callback function
+    def OnReceiveSerialData(self,message):
+        str_message = message.decode("utf-8")
+        self.ta.insertPlainText(str_message)
+
+    # Release resources
+    def OnWindowClosing(self,message):
+        self.serialPort.Close()
+
     def createSlider(self):
-        self.groupBox = QGroupBox("DDS Frequency = 1")
+        self.groupBox = QGroupBox("DDS Frequency set at 1 Hz")
 
         self.slider = QSlider(Qt.Horizontal)
         self.slider.setFocusPolicy(Qt.StrongFocus)
@@ -41,12 +64,11 @@ class Window(QWidget):
         return self.groupBox
 
     def sliderChanged(self):
-        self.groupBox.setTitle("DDS Frequency = "+str(self.slider.value()))
+        self.groupBox.setTitle("DDS Frequency set at %s Hz "% str(self.slider.value()))
 
 
     def createLogArea(self):
         groupBox = QGroupBox("Log")
-
 
         self.ta = QPlainTextEdit(groupBox)
         vbox = QVBoxLayout()

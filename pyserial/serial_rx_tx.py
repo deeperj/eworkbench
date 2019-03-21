@@ -12,7 +12,7 @@ class SerialPort:
     def __init__(self):
         self.comportName = ""
         self.baud = 0
-        self.timeout = None
+        self.timeout = 1
         self.ReceiveCallback = None
         self.isopen = False
         self.receivedMessage = None
@@ -50,6 +50,7 @@ class SerialPort:
             # serialPort = 'portname', baudrate, bytesize = 8, parity = 'N', stopbits = 1, timeout = None, xonxoff = 0, rtscts = 0)
             self.serialport.port = portname
             self.serialport.baudrate = baudrate
+            #self.serialport.timeout = self.timeout
             try:
                 self.serialport.open()
                 self.isopen = True
