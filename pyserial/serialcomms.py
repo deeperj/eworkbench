@@ -6,10 +6,9 @@
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox, QPlainTextEdit, 
-                             QMenu, QPushButton, QRadioButton, QVBoxLayout, QWidget, QSlider)
+                             QMenu, QPushButton, QRadioButton, QVBoxLayout, QHBoxLayout, QWidget, QSlider)
 import serial_rx_tx
 import serial.tools.list_ports
-
 
 class Window(QWidget):
     def __init__(self, parent=None):
@@ -27,7 +26,7 @@ class Window(QWidget):
         grid = QGridLayout()
         grid.addWidget(self.createSlider(), 0, 0)
         grid.addWidget(self.createLogArea(), 1, 0)
-        #grid.addWidget(self.createExampleGroup(), 0, 1)
+        grid.addWidget(self.cmdButtons(), 2, 0)
         #grid.addWidget(self.createExampleGroup(), 1, 1)
         self.setLayout(grid)
 
@@ -39,7 +38,10 @@ class Window(QWidget):
     # serial data callback function
     def OnReceiveSerialData(self,message):
         str_message = message.decode("utf-8")
-        self.ta.insertPlainText(str_message)
+        try:
+            self.ta.insertPlainText(str_message)
+        except(Exception ):
+            self.serialPort.Close()
 
     # Release resources
     def OnWindowClosing(self,message):
@@ -66,6 +68,14 @@ class Window(QWidget):
     def sliderChanged(self):
         self.groupBox.setTitle("DDS Frequency set at %s Hz "% str(self.slider.value()))
 
+    def sendCmd(self, c):
+        if(c=='P'):
+            self.btnPause.setEnabled(False)
+            self.btnResume.setEnabled(True)
+        elif(c=='R'):
+            self.btnPause.setEnabled(True)
+            self.btnResume.setEnabled(False)
+        self.serialPort.Send(c)
 
     def createLogArea(self):
         groupBox = QGroupBox("Log")
@@ -74,6 +84,21 @@ class Window(QWidget):
         vbox = QVBoxLayout()
         vbox.addWidget(self.ta)
         groupBox.setLayout(vbox)
+
+        return groupBox
+
+    def cmdButtons(self):
+        groupBox = QGroupBox("Commands")
+
+        self.btnPause = QPushButton("Pause",self)
+        self.btnPause.clicked.connect(lambda: self.sendCmd('P'))
+        self.btnPause.setEnabled(False)
+        self.btnResume = QPushButton("Capture",self)
+        self.btnResume.clicked.connect(lambda: self.sendCmd('R'))
+        hbox = QHBoxLayout()
+        hbox.addWidget(self.btnPause)
+        hbox.addWidget(self.btnResume)
+        groupBox.setLayout(hbox)
 
         return groupBox
 
