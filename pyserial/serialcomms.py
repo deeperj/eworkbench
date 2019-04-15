@@ -4,11 +4,14 @@
 # In[ ]:
 
 import sys
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt,QThread
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox, QPlainTextEdit, 
                              QMenu, QPushButton, QRadioButton, QVBoxLayout, QHBoxLayout, QWidget, QSlider)
 import serial_rx_tx
-import serial.tools.list_ports
+import serial.tools.list_ports,time
+
+sys_paused=True
+prev_time=None
 
 class Window(QWidget):
     def __init__(self, parent=None):
@@ -35,6 +38,8 @@ class Window(QWidget):
 
         self.destroyed.connect(self.OnWindowClosing)
 
+        #self.sliderWatch = QThread()
+
     # serial data callback function
     def OnReceiveSerialData(self,message):
         str_message = message.decode("utf-8")
@@ -55,7 +60,7 @@ class Window(QWidget):
         self.slider.setTickPosition(QSlider.TicksBothSides)
         self.slider.setTickInterval(10)
         self.slider.setSingleStep(1)
-        self.slider.setMaximum(100)
+        self.slider.setMaximum(400)
         self.slider.setMinimum(1)
         self.slider.valueChanged.connect(self.sliderChanged)
 
@@ -66,15 +71,27 @@ class Window(QWidget):
         return self.groupBox
 
     def sliderChanged(self):
+        #if(prev_time==None):prev_time=time.time()
+        #new_time = time.time()
+        #elapsed_time = new_time - prev_time
         self.groupBox.setTitle("DDS Frequency set at %s Hz "% str(self.slider.value()))
+        if not sys_paused:
+            self.sendCmd('P')
+        #print(elapsed_time)
+        #prev_time=time.time()
 
     def sendCmd(self, c):
+        print('starting..'+c)
         if(c=='P'):
-            self.btnPause.setEnabled(False)
-            self.btnResume.setEnabled(True)
+            sys_paused=True
+            self.btnPause.setEnabled(not sys_paused)
+            self.btnResume.setEnabled(sys_paused)
         elif(c=='R'):
-            self.btnPause.setEnabled(True)
-            self.btnResume.setEnabled(False)
+            #self.sendCmd(str(self.slider.value()))
+            sys_paused=False
+            self.btnPause.setEnabled(not sys_paused)
+            self.btnResume.setEnabled(sys_paused)
+            #time.sleep(1.2)
         self.serialPort.Send(c)
 
     def createLogArea(self):
@@ -92,7 +109,7 @@ class Window(QWidget):
 
         self.btnPause = QPushButton("Pause",self)
         self.btnPause.clicked.connect(lambda: self.sendCmd('P'))
-        self.btnPause.setEnabled(False)
+        self.btnPause.setEnabled(not sys_paused)
         self.btnResume = QPushButton("Capture",self)
         self.btnResume.clicked.connect(lambda: self.sendCmd('R'))
         hbox = QHBoxLayout()
