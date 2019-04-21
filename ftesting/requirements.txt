@@ -1,0 +1,4 @@
+django==2.0
+gunicorn==19.7.1
+djangorestframework==3.6.2
+selenium
