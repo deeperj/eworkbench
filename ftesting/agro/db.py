@@ -23,13 +23,13 @@ binary: repr raw bytes or byte array like streams or object
 
 '''
 database = iter([
-	[
+        [
             # Agro Document extends the base UBL document model
             ('contract_number', "identifier"),            
             ('farm', "asbie"),            
             ('work_process', "asbie"),            
             ('profile', "text"),            
-	],
+        ],
         [
             # Farm
             ('fields', "asbie"),  # references the various arable regions on the farm
