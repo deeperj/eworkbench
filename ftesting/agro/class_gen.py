@@ -147,6 +147,9 @@ def get_options_dict(configFile):
   f = open(configFile)
   d = yaml.load(f)
   f.close()
+  return get_opt_dict(d)
+
+def get_opt_dict(dict):
   objs = {}
   for k,v in d.items():
     oClz = classobj('%sOptions'%k.capitalize(),(ConfigOptions,), {})
