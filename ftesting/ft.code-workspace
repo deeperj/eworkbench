@@ -1,0 +1,13 @@
+{
+    "folders": 
+    [
+        {
+            "uri": ".",
+            "name": "jst local"
+        },
+        {
+            "uri": "sftp://u1273400:k_-_monger@selene.hud.ac.uk/stud/u1273400/src/python/jst?debug=1",
+            "name": "jst remote"
+        },
+    ]
+}

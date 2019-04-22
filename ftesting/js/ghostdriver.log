@@ -1,0 +1,26 @@
+[INFO  - 2019-04-21T22:57:27.431Z] GhostDriver - Main - running on port 51232
+[INFO  - 2019-04-21T22:57:27.743Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2019-04-21T22:57:27.743Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.customHeaders:  - {}
+[INFO  - 2019-04-21T22:57:27.743Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2019-04-21T22:57:27.743Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: d5d3d3f0-6488-11e9-9d07-13e8db36ab9e
+[ERROR - 2019-04-21T22:57:30.824Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'this.element.play()')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-04-21T22:57:30.824Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.onError - stack:
+  da (https://s.imgur.com/desktop-assets/js/main.3148a7a48ad97cf83b56.js:57)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-04-21T22:57:30.825Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'this.element.load()')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-04-21T22:57:30.825Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.onError - stack:
+  da (https://s.imgur.com/desktop-assets/js/main.3148a7a48ad97cf83b56.js:57)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-04-21T22:57:30.956Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.onError - msg: Unable to get NonIab Vendor list.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-04-21T22:57:30.957Z] Session [d5d3d3f0-6488-11e9-9d07-13e8db36ab9e] - page.onError - stack:
+  (anonymous function) (https://static.quantcast.mgr.consensu.org/v16/cmpui-popup.js:1)
+
+  phantomjs://platform/console++.js:263 in error
