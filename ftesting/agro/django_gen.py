@@ -146,9 +146,10 @@ class ConfigOptions(object):
 
 def get_dict(d):
   objs = {}
-  for k in d.items():
+  for k,v in d.items():
     #for k,v in d.items():
     #oClz = classobj('%sOptions'%k.capitalize(),(ConfigOptions,), {})
+    #print(k)
     oClz = type('%sOptions'%k.capitalize(),(ConfigOptions,), {})
     obj = oClz(**d[k])
     objs[oClz.__name__]=obj
@@ -217,13 +218,14 @@ class DjangoGen(object):
     return {}
   #
   def get_args(self, line):
+    #print(line)
     if line:
-      return line.replace(' ', '').split(',')
+      return line #.replace(' ', '').split(',')
   #
   def define_members(self, args, kwds):
     memSeq = []
     if args:
-      memSeq = list(('\t\t\t\tself.%s = %s\n'%(a, a) for a in args))
+      memSeq = list(('\t\t\t\tself.%s = %s\n'%(a[0], a[0]) for a in args))
     if kwds:
       for k,v in kwds.items():
         memSeq.append('\t\t\t\tself.%s = %s\n'%(k,v))
@@ -251,15 +253,16 @@ class DjangoGen(object):
       self.try_except(line=self.make_lock(self.options.ClassOptions.Name)+memberLines)
     )
     # add methods
-    for mName, mOptions in self.options.ClassOptions.Methods.__dict__.items():
-      classSeq.append(
-        self.define_method(
-          mName, 
-          mOptions.Sig.Args, 
-          mOptions.Sig.Kwds, 
-          mOptions.Sig.Sync, 
-          mOptions.Sig.DocString)
-      )
+    if(self.options.ClassOptions.Methods):
+      for mName, mOptions in self.options.ClassOptions.Methods.__dict__.items():
+        classSeq.append(
+          self.define_method(
+            mName, 
+            mOptions.Sig.Args, 
+            mOptions.Sig.Kwds, 
+            mOptions.Sig.Sync, 
+            mOptions.Sig.DocString)
+        )
     
     return ''.join(classSeq)
 #
