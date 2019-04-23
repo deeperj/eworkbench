@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_soilsample_list' %}">SoilSample Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>soil_texture</td>
+    <td>analysis_method</td>
+    <td>soil_heaviness</td>
+    <td>soil_name</td>
+    <td>spatial_data</td>
+    <td>reference_part_of_field</td>
+    <td>soil_nutrient_classification</td>
+    <td>depth_range</td>
+    <td>soil_type</td>
+    <td>depth_unit</td>
+    <td>depth</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.soil_texture }}</td>
+    <td>{{ object.analysis_method }}</td>
+    <td>{{ object.soil_heaviness }}</td>
+    <td>{{ object.soil_name }}</td>
+    <td>{{ object.spatial_data }}</td>
+    <td>{{ object.reference_part_of_field }}</td>
+    <td>{{ object.soil_nutrient_classification }}</td>
+    <td>{{ object.depth_range }}</td>
+    <td>{{ object.soil_type }}</td>
+    <td>{{ object.depth_unit }}</td>
+    <td>{{ object.depth }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_soilsample_create' %}">Create new SoilSample</a>
+{% endblock %}

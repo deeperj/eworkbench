@@ -1,3 +1,15 @@
+from django.db.models import BinaryField
+from django.db.models import BooleanField
+from django.db.models import CharField
+from django.db.models import DecimalField
+from django.db.models import DateField
+from django.db.models import DateTimeField
+from django.db.models import TimeField
+from django.db.models import IntegerField
+from django.db.models import TextField
+from django.db import models as models
+
+
 #
 #
 #

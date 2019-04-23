@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_farmfield_list' %}">FarmField Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>area</td>
+    <td>field_identification</td>
+    <td>area_unit</td>
+    <td>unique_area_id</td>
+    <td>name_of_field</td>
+    <td>part_of_farm</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.area }}</td>
+    <td>{{ object.field_identification }}</td>
+    <td>{{ object.area_unit }}</td>
+    <td>{{ object.unique_area_id }}</td>
+    <td>{{ object.name_of_field }}</td>
+    <td>{{ object.part_of_farm }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_farmfield_create' %}">Create new FarmField</a>
+{% endblock %}

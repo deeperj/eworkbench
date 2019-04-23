@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_fieldcultivation_list' %}">FieldCultivation Listing</a></p>
+<table class="table">
+<tr><td>duration_unit</td><td>{{ object.duration_unit }}</td></tr>
+<tr><td>duration_of_use</td><td>{{ object.duration_of_use }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit FieldCultivation</a>
+
+{% endblock %}

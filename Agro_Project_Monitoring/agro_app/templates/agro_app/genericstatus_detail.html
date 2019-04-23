@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_genericstatus_list' %}">GenericStatus Listing</a></p>
+<table class="table">
+<tr><td>status_name</td><td>{{ object.status_name }}</td></tr>
+<tr><td>meaning</td><td>{{ object.meaning }}</td></tr>
+<tr><td>staus</td><td>{{ object.staus }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit GenericStatus</a>
+
+{% endblock %}
