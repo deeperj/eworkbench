@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_certificationvalidity_list' %}">CertificationValidity Listing</a></p>
+<table class="table">
+<tr><td>valid_for_purpose</td><td>{{ object.valid_for_purpose }}</td></tr>
+<tr><td>farm_purpose</td><td>{{ object.farm_purpose }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>issue_date</td><td>{{ object.issue_date }}</td></tr>
+<tr><td>start_date</td><td>{{ object.start_date }}</td></tr>
+<tr><td>expiry_date</td><td>{{ object.expiry_date }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit CertificationValidity</a>
+
+{% endblock %}

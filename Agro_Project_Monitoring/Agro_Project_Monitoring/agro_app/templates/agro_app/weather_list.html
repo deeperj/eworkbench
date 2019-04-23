@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_weather_list' %}">Weather Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>temperature</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>temperature_unit</td>
+    <td>wind_speed</td>
+    <td>wind_speed_unit</td>
+    <td>humidity</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.temperature }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.temperature_unit }}</td>
+    <td>{{ object.wind_speed }}</td>
+    <td>{{ object.wind_speed_unit }}</td>
+    <td>{{ object.humidity }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_weather_create' %}">Create new Weather</a>
+{% endblock %}
