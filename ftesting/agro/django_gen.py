@@ -2,7 +2,7 @@ import os
 import sys
 import re
 import yaml
-#from .new import classobj
+from dtresolve import dsel
 
 """
 Yaml file looks like this -
@@ -149,7 +149,6 @@ def get_dict(d):
   for k,v in d.items():
     #for k,v in d.items():
     #oClz = classobj('%sOptions'%k.capitalize(),(ConfigOptions,), {})
-    #print(k)
     oClz = type('%sOptions'%k.capitalize(),(ConfigOptions,), {})
     obj = oClz(**d[k])
     objs[oClz.__name__]=obj
@@ -220,12 +219,16 @@ class DjangoGen(object):
   def get_args(self, line):
     #print(line)
     if line:
-      return line #.replace(' ', '').split(',')
+      self.args={}
+      list(self.args[l[0]]=l[1] for l in line)
+      return [l[0] for l in line] #.replace(' ', '').split(',')
   #
   def define_members(self, args, kwds):
     memSeq = []
     if args:
-      memSeq = list(('\t\t\t\tself.%s = %s\n'%(a[0], a[0]) for a in args))
+      # memSeq = list(('\t\t\t\tself.%s = %s\n'%(a[0], a[0]) for a in args))
+      #memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.options.ClassOptions.Args[a])[0], dsel(self.options.ClassOptions.Args[a])[1] if dsel(self.options.ClassOptions.Args[a])[1]!=None else ''  for a in args))
+      memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.options.ClassOptions.Args[a])[0], '')  for a in args))
     if kwds:
       for k,v in kwds.items():
         memSeq.append('\t\t\t\tself.%s = %s\n'%(k,v))
@@ -237,7 +240,9 @@ class DjangoGen(object):
         self.options.ClassOptions.Name,
         ('object' if self.options.ClassOptions.Super==None else self.options.ClassOptions.Super)),
         tabIn=0))
-    classSeq.append(self.docstring(self.options.ClassOptions.DocString))
+    #classSeq.append(self.docstring(self.options.ClassOptions.DocString))
+    print(self.options.ClassOptions)
+    print(self.options.ClassOptions.Args)
     # add __init__
     classSeq.append(self.define_method(  '__init__',
                     self.parse_args(self.options.ClassOptions.Args),

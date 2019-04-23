@@ -267,14 +267,14 @@ database = {
 classes=[]
 
 for table in database:
-    y={};yaml={}
-    #     for field in database[table]:
-    #         #print("table=",table,"; field=",field[0])
-    #         yf[field[0]]=field[1]
+    y={};yaml={};yf={}
+    for field in database[table]:
+        #print("table=",table,"; field=",field[0])
+        yf[field[0]]=field[1]
     y["Name"]=table
     y["Super"]='models.Model'
     y["DocString"]='You better comment this class'
-    y["Args"]=database[table]
+    y["Args"]=yf #database[table]
     y["Kwds"]=None
     y["Methods"]=None
     yaml['Class']=y
