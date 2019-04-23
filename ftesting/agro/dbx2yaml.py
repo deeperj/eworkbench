@@ -22,17 +22,16 @@ boolean: repr bool True or False values
 binary: repr raw bytes or byte array like streams or object
 
 '''
-
 database = {
         "AgroDocument":[
-            # 1. Agro Document extends the base UBL document model
+            # Agro Document extends the base UBL document model
             ('contract_number', "identifier"),            
             ('farm', "asbie"),            
             ('work_process', "asbie"),            
             ('profile', "text"),            
         ],
         "Farm":[
-            # 2. Farm
+            # Farm
             ('fields', "asbie"),  # references the various arable regions on the farm
             ('name', "text"),
             ('owner', "asbie"),
@@ -45,7 +44,7 @@ database = {
             ('farming_system', "text")
         ],
         "Certificate":[
-            # 3. Certificate
+            # Certificate
             ('first_certificate_date', "date_"),
             ('certification_agency', "text"),
             ('validity', "asbie"),
@@ -54,7 +53,7 @@ database = {
             ('supporting_documents', "asbie"), # scanned paper documents where applicable
         ],
         "CertificationValidity":[
-            # 4. Certification Validity
+            # Certification Validity
             ('valid_for_purpose', "boolean"),
             ('farm_purpose', "text"),
             ('issue_date', "date_"),
@@ -62,7 +61,7 @@ database = {
             ('expiry_date', "date_"),            
         ],
         "FarmField":[
-            # 5. Field
+            # Field
             ('cultivation', "asbie"),            
             ('name_of_field', "name"),
             ('field_identification', "identifier"),
@@ -76,32 +75,32 @@ database = {
  # reference the soil_sample & analysis result            
         ],
         "Assessment":[
-            # 6. Assessment
+            # Assessment
             ('soil_sample', "asbie"),
             ('analysis', "asbie"),
             ('status', "asbie")
         ],
         "GenericStatus":[
-            # 7. Generic Status
+            # Generic Status
             ('staus', "code"),
             ('status_name', "name"),
             ('meaning', "text")
         ],
         "RecordedStatus":[
-            # 8. Recorded Status @comment: references the present status of an entity
+            # Recorded Status @comment: references the present status of an entity
             ('status', "asbie"),
             ('status_date', "date_"),
             ('status_time', "time_")
         ],
         "LandUse":[
-            # 9. Land use
+            # Land use
             ('land_use', "text"),  # text describing land use were land_use_code_type is insufficient
             ('land_use_type', "code"),  # values: PRIMARY_CROP, CATCH_CROP, PRECEEDING_CROP, LAND_USE_RESTRICTION
             ('farming_attribute', "code"), # values: PLOUGHLESS, DIRECT_SOWING
             ('land_use_restriction_type', "code"),
         ],        
         "FertilizationRecommendation":[
-            # 10. Fertilization Recommendation
+            # Fertilization Recommendation
             ('crops', "asbie"),
             ('agent', "asbie"),
             ('form_of_fertilizer', "asbie"),
@@ -111,7 +110,7 @@ database = {
             ('application_measured_unit', "code"),            
         ],
         "SampleBase":[
-            # 11. Sample @ base sample definition for soil and fertilizer samples
+            # Sample @ base sample definition for soil and fertilizer samples
             ('recieved_date', "date_"),
             ('received_time', "time_"),
             ('description', "text"),
@@ -128,7 +127,7 @@ database = {
             ('analysis_time', "time_"),
         ],
         "SoilSample":[
-            # 12. Soil sample @extends Sample
+            # Soil sample @extends Sample
             ('soil_name', "text"),  # Give (alternative) name to soil type where not available in code
             ('soil_type', "code"),
             ('reference_part_of_field', "text"),
@@ -143,7 +142,7 @@ database = {
             ('soil_texture', "text"),
         ],
         "AnalysisResult":[
-            # 13. Analysis Result
+            # Analysis Result
             ('abstract_analysis', "text"),
             ('parameters', "text"),  # delimited string list. e.g {'PH_VALUE': ("method", "value", "classification" )}
             ('description', "text"),
@@ -152,11 +151,11 @@ database = {
             ('sample', "asbie"),            
         ],
         "FertilizerSample":[
-            # 14. Fertilizer sample @extends Sample
+            # Fertilizer sample @extends Sample
             ('fertilizer', "asbie"),            
         ],
         "Fertilizer":[
-            # 15. Fertilizer
+            # Fertilizer
             ('fertilizer_brand', "text"),  # general market brand name
             ('fertlizer_name', "text"),  # specific manufacturer name
             ('fertilizer_type', "code"),
@@ -165,14 +164,14 @@ database = {
             ('fertilizer_form', "text")
         ],
         "FieldCultivation":[
-            # 16. Field Cultivation
+            # Field Cultivation
             ('field', "asbie"),
             ('reference_field_part', "asbie"),
             ('duration_of_use', "number"),
             ('duration_unit', "code"),                        
         ],
         "Crop":[
-            # 18. Crop
+            # Crop
             ('field', "asbie"),
             ('monetary_value_per_hectar', "number"),
             ('monetary_value_currency', "code"),
@@ -182,7 +181,7 @@ database = {
             ('description', "text"),
         ],
         "CropGrowthStage":[
-            # 19. Crop Growth Stage
+            # Crop Growth Stage
             ('growth_stage', "text"),
             ('"date_"recorded', "date_"),
             ('time_recorded', "time_"),
@@ -191,14 +190,14 @@ database = {
             
         ],
         "CropSpecies":[
-            # 20. Crop Species
+            # Crop Species
             ('crop', "asbie"),
             ('name', "text"),
             ('variety', "code"),
             ('genetically_modified_organism', "boolean"),            
         ],
         "Harvest":[
-            # 21. Harvest
+            # Harvest
             ('crop', "asbie"),
             ('harvested_quantity', "number"),
             ('yield_quantity', "number"),
@@ -212,7 +211,7 @@ database = {
             ('end_date', "date_")            
         ],
         "Activity":[
-            # 22. Activity
+            # Activity
             ('daily_start', "datetime_"),
             ('daily_end', "datetime_"),
             ('activity', "text"),
@@ -222,7 +221,7 @@ database = {
             ('reference', "asbie")  # generic reference to Harvest, Cultivation and other farming activities
         ],
         "Weather":[
-            # 23. Weather
+            # Weather
             ('temperature', "number"),
             ('temperature_unit', "code"),
             ('wind_speed', "number"),
@@ -243,7 +242,7 @@ database = {
             ('measured_by', "asbie"),
         ],
         "Contamination":[
-            # 24. Contamination
+            # Contamination
             ('contaimination_type', "text"),
             ('contamination_degree', "text"),
             ('noticed_date', "date_"),
@@ -253,7 +252,7 @@ database = {
             
         ],               
         "AgriculturalProgramme":[
-            # 25. Agricultural Programme @e.g palm seedling donations
+            # Agricultural Programme @e.g palm seedling donations
             ('start', "datetime_"),
             ('end', "datetime_"),
             ('invitations', "asbie"),
@@ -266,7 +265,7 @@ database = {
             ('status', "asbie"),
         ],
         "ProgrammePerformance":[
-            # 26. Programme Performance
+            # Programme Performance
             ('participants','text' ),
  # actual record of participants as against invitation            
             ('programme_activities','text' ),
@@ -281,11 +280,10 @@ database = {
             ('activity', "asbie")  # reference the generic activity model for daily activities
         ],
         "MeasuredKPI":[
-            # 27. Measured KPI
+            # Measured KPI
             ('measured_kpis', "asbie"),
   # delimited text for the KPIs measured with their unit
             ('impact_assessment', "text"),
             ('programme_performance', "asbie")
         ]
 }
-
