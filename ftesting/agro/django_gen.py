@@ -243,18 +243,19 @@ class DjangoGen(object):
         tabIn=0))
     #classSeq.append(self.docstring(self.options.ClassOptions.DocString))
     # add __init__
-    classSeq.append(self.define_method(  '__init__',
-                    self.parse_args(self.options.ClassOptions.Args),
-                    self.parse_kwds(self.options.ClassOptions.Kwds),
-                    tryExcept=False)
-                  )
-    if self.options.ClassOptions.Super != None:
-      classSeq.append(self.code_line('%s.__init__(self)'%self.options.ClassOptions.Super, tabIn=3))
+    # classSeq.append(self.define_method(  '__init__',
+    #                 self.parse_args(self.options.ClassOptions.Args),
+    #                 self.parse_kwds(self.options.ClassOptions.Kwds),
+    #                 tryExcept=False)
+    #               )
+    # if self.options.ClassOptions.Super != None:
+    #   classSeq.append(self.code_line('%s.__init__(self)'%self.options.ClassOptions.Super, tabIn=3))
     memberLines = self.define_members(
           self.get_args(self.options.ClassOptions.Args), 
           self.get_kwds(self.options.ClassOptions.Kwds))
     classSeq.append(
-      self.try_except(line=self.make_lock(self.options.ClassOptions.Name)+memberLines)
+      # self.try_except(line=self.make_lock(self.options.ClassOptions.Name)+memberLines)
+      memberLines
     )
     # add methods
     if(self.options.ClassOptions.Methods):

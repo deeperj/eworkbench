@@ -27,34 +27,34 @@ def name():#2
     return ("CharField","max_length=255")
 
 def code():#3
-    return ("IntegerField")
+    return ("IntegerField",)
 
 def number():#4
-    return ("IntegerField")
+    return ("IntegerField",)
 
 def date_():#5
-    return ("DateField")
+    return ("DateField",)
 
 def datetime_():#6
-    return ("DateTimeField")
+    return ("DateTimeField",)
 
 def time_():#7
-    return ("TimeField")
+    return ("TimeField",)
 
 def identifier():#8
-    return ("IntegerField")
+    return ("IntegerField",)
 
 def amount():#9
-    return ("DecimalField")
+    return ("DecimalField",)
 
 def text():#10
     return ("TextField","max_length=255")
 
 def boolean():#11
-    return ("BooleanField")
+    return ("BooleanField",)
 
 def binary():#12
-    return ("BinaryField")
+    return ("BinaryField",)
 
 def dsel(argument):
     switcher = {
