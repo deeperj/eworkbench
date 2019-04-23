@@ -221,14 +221,17 @@ class DjangoGen(object):
     if line:
       self.d={}
       for l in line:
-        self.d[l[0]]=l[1]
-      return [l[0] for l in line] #.replace(' ', '').split(',')
+        if l[1]!='asbie':
+          self.d[l[0]]=l[1]
+      return self.d.keys() #.replace(' ', '').split(',')
   #
   def define_members(self, args, kwds):
     memSeq = []
     if args:
       # memSeq = list(('\t\t\t\tself.%s = %s\n'%(a[0], a[0]) for a in args))
       #memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.options.ClassOptions.Args[a])[0], dsel(self.options.ClassOptions.Args[a])[1] if dsel(self.options.ClassOptions.Args[a])[1]!=None else ''  for a in args))
+      print('args=',args,'\n\nd=',self.d)
+      exit()
       memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.d[a])[0], '')  for a in args))
     if kwds:
       for k,v in kwds.items():
