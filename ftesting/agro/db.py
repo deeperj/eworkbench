@@ -61,17 +61,18 @@ database = iter([
             ('expiry_date', date_),            
         ],
         [
-            # Field
+            # Farm Field
             ('cultivation', asbie),            
             ('name_of_field', name),
             ('field_identification', identifier),
             ('unique_area_id', identifier),
-            ('part_of_farm', ),                        
             ('area', number),
             ('area_unit', code),
-            ('spatial_data', asbie),            
-            ('land_use_restriction', asbie),            
-            ('assessment', asbie), # reference the soil_sample & analysis result            
+            ('part_of_farm', text),  # represent a named region in the farm
+            ('spatial_data', asbie),            
+            ('land_use_restriction', asbie),            
+            ('assessment', asbie),
+ # reference the soil_sample & analysis result            
         ],
         [
             # Assessment
@@ -109,7 +110,7 @@ database = iter([
             ('application_measured_unit', code),            
         ],
         [
-            # Sample @ base sample definition for soil and fertilizer samples
+            # Sample Base @ base sample definition for soil and fertilizer samples
             ('recieved_date', date_),
             ('received_time', time_),
             ('description', text),
@@ -126,7 +127,7 @@ database = iter([
             ('analysis_time', time_),
         ],
         [
-            # Soil sample @extends Sample
+            # Soil Sample @extends Sample Base
             ('soil_name', text),  # Give (alternative) name to soil type where not available in code
             ('soil_type', code),
             ('reference_part_of_field', text),
@@ -204,7 +205,8 @@ database = iter([
             # The code or string repr which can be parsed by target enum type.
             # The enum will have a default OTHER for cases not yet identified
             # Enum flag OTHER will enable collection and processing user's text data
-            ('harvest_quality', code),  
+            ('harvest_quality', code),
+  
             ('field', asbie),
             ('start_date', ),
             ('end_date', )            
@@ -231,10 +233,12 @@ database = iter([
             ('precipitation_unit', code),
             ('solar_radiation', number),
             ('solar_radiation_unit', code),
-            ('reported_by', asbie),  # can be weather station or 3rd party agent
+            ('reported_by', asbie), 
+  # can be weather station or 3rd party agent
             ('reported_date', date_),
             ('reported_time', time_),
-            ('measured_date', date_),  # use this field for weather condition measured by on farm
+            ('measured_date', date_),
+  # use this field for weather condition measured by on farm
             ('measured_time', time_),
             ('measured_by', asbie),
         ],
@@ -245,7 +249,8 @@ database = iter([
             ('noticed_date', date_),
             ('noticed_time', time_),
             ('reported_by', asbie),
-            ('affected_fields', asbie),            
+            ('affected_fields', asbie),
+            
         ],               
         [
             # Agricultural Programme @e.g palm seedling donations
@@ -262,18 +267,23 @@ database = iter([
         ],
         [
             # Programme Performance
-            ('participants', ), # actual record of participants as against invitation            
-            ('programme_activities', ),
-            ('comments', ),
-            ('learning_points', ),  # learning from the event by organisers
-            ('recommendations', ),  # should hold organisers recommendations for later
-            ('participant_suggestions', ), # should hold participant's suggestions/recommendations
+            ('participants', asbie),  # reference a registered user or identifier for persons at event
+ # actual record of participants as against invitation            
+            ('programme_activities', asbie),  # reference the generic activity model
+            ('comments', text),
+            ('learning_points', text),
+  # learning from the event by organisers
+            ('recommendations', text),
+  # should hold organisers recommendations for later
+            ('participant_suggestions', text),
+ # should hold participant's suggestions/recommendations
             ('event_coverage', binary)  # uploaded photos or videos
             ('activity', asbie)  # reference the generic activity model for daily activities
         ],
         [
             # Measured KPI
-            ('measured_kpis', asbie),  # delimited text for the KPIs measured with their unit
+            ('measured_kpis', asbie),
+  # delimited text for the KPIs measured with their unit
             ('impact_assessment', text),
             ('programme_performance', asbie)
         ]

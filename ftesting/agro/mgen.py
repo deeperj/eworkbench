@@ -274,7 +274,7 @@ for table in database:
     y["Name"]=table
     y["Super"]='models.Model'
     y["DocString"]='You better comment this class'
-    y["Args"]=yf #database[table]
+    y["Args"]=database[table]
     y["Kwds"]=None
     y["Methods"]=None
     yaml['Class']=y
