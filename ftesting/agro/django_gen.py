@@ -220,7 +220,8 @@ class DjangoGen(object):
     #print(line)
     if line:
       self.args={}
-      list(self.args[l[0]]=l[1] for l in line)
+      for l in line:
+        self.args[l[0]]=l[1]
       return [l[0] for l in line] #.replace(' ', '').split(',')
   #
   def define_members(self, args, kwds):
