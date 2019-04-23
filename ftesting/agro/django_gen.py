@@ -229,7 +229,7 @@ class DjangoGen(object):
     memSeq = []
     if args:
       # memSeq = list(('\t\t\t\tself.%s = %s\n'%(a[0], a[0]) for a in args))
-      memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.d[a])[0], '')  for a in args))
+      memSeq = list(('\t%s = models.%s(%s)\n'%(a, dsel(self.d[a])[0], '')  for a in args))
     if kwds:
       for k,v in kwds.items():
         memSeq.append('\t\t\t\tself.%s = %s\n'%(k,v))
@@ -237,26 +237,18 @@ class DjangoGen(object):
   #
   def define_class(self):
     classSeq = []
-    classSeq.append(self.code_line('#\n#\n#\nclass %s(%s):'%(
-        self.options.ClassOptions.Name,
-        ('object' if self.options.ClassOptions.Super==None else self.options.ClassOptions.Super)),
-        tabIn=0))
-    #classSeq.append(self.docstring(self.options.ClassOptions.DocString))
-    # add __init__
-    # classSeq.append(self.define_method(  '__init__',
-    #                 self.parse_args(self.options.ClassOptions.Args),
-    #                 self.parse_kwds(self.options.ClassOptions.Kwds),
-    #                 tryExcept=False)
-    #               )
-    # if self.options.ClassOptions.Super != None:
-    #   classSeq.append(self.code_line('%s.__init__(self)'%self.options.ClassOptions.Super, tabIn=3))
     memberLines = self.define_members(
           self.get_args(self.options.ClassOptions.Args), 
           self.get_kwds(self.options.ClassOptions.Kwds))
-    classSeq.append(
-      # self.try_except(line=self.make_lock(self.options.ClassOptions.Name)+memberLines)
-      memberLines
-    )
+    if len(self.d)>0:
+      classSeq.append(self.code_line('#\n#\n#\nclass %s(%s):'%(
+          self.options.ClassOptions.Name,
+          ('object' if self.options.ClassOptions.Super==None else self.options.ClassOptions.Super)),
+          tabIn=0))
+      classSeq.append(
+        # self.try_except(line=self.make_lock(self.options.ClassOptions.Name)+memberLines)
+        memberLines
+      )
     # add methods
     if(self.options.ClassOptions.Methods):
       for mName, mOptions in self.options.ClassOptions.Methods.__dict__.items():
