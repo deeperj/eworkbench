@@ -20,41 +20,44 @@ from django.db.models import IntegerField
 from django.db.models import TextField
 
 '''
-def asbie():#1
+def asbie(empty):#1
     return None
 
-def name():#2
+def name(empty):#2
     return ("CharField","max_length=255")
 
-def code():#3
-    return ("IntegerField")
+def code(empty):#3
+    return ("IntegerField",)
 
-def number():#4
-    return ("IntegerField")
+def number(empty):#4
+    return ("IntegerField",)
 
-def date_():#5
-    return ("DateField")
+def date_(empty):#5
+    return ("DateField",)
 
-def datetime_():#6
-    return ("DateTimeField")
+def datetime_(empty):#6
+    return ("DateTimeField",)
 
-def time_():#7
-    return ("TimeField")
+def time_(empty):#7
+    return ("TimeField",)
 
-def identifier():#8
-    return ("IntegerField")
+def identifier(empty):#8
+    return ("IntegerField",)
 
-def amount():#9
-    return ("DecimalField")
+def amount(empty):#9
+    return ("DecimalField",)
 
-def text():#10
+def text(empty):#10
     return ("TextField","max_length=255")
 
-def boolean():#11
-    return ("BooleanField")
+def boolean(empty):#11
+    return ("BooleanField",)
 
-def binary():#12
-    return ("BinaryField")
+def binary(empty):#12
+    return ("BinaryField",)
+
+def default(arg):#12
+    return (arg,)
 
 def dsel(argument):
     switcher = {
@@ -70,9 +73,10 @@ def dsel(argument):
         "text": text, #10
         "boolean": boolean, #11
         "binary": binary, #12
+        "default": default, #12
         #"name": lambda: "two",
     }
     # Get the function from switcher dictionary
-    func = switcher.get(argument, lambda: "nothing")
+    func = switcher.get(argument, switcher.get("default", lambda: "nothing"))
     # Execute the function
-    return func()
+    return func(argument)

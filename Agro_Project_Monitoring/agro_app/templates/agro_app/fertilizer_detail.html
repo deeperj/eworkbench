@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_fertilizer_list' %}">Fertilizer Listing</a></p>
+<table class="table">
+<tr><td>fertilizer_type</td><td>{{ object.fertilizer_type }}</td></tr>
+<tr><td>fertlizer_name</td><td>{{ object.fertlizer_name }}</td></tr>
+<tr><td>fertilizer_brand</td><td>{{ object.fertilizer_brand }}</td></tr>
+<tr><td>fertilizer_form</td><td>{{ object.fertilizer_form }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Fertilizer</a>
+
+{% endblock %}

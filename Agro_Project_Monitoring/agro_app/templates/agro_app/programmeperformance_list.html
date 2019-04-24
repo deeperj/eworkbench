@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_programmeperformance_list' %}">ProgrammePerformance Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>event_coverage</td>
+    <td>programme_activities</td>
+    <td>comments</td>
+    <td>participants</td>
+    <td>learning_points</td>
+    <td>participant_suggestions</td>
+    <td>recommendations</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.event_coverage }}</td>
+    <td>{{ object.programme_activities }}</td>
+    <td>{{ object.comments }}</td>
+    <td>{{ object.participants }}</td>
+    <td>{{ object.learning_points }}</td>
+    <td>{{ object.participant_suggestions }}</td>
+    <td>{{ object.recommendations }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_programmeperformance_create' %}">Create new ProgrammePerformance</a>
+{% endblock %}

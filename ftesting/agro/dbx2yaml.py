@@ -183,7 +183,7 @@ database = {
         "CropGrowthStage":[
             # Crop Growth Stage
             ('growth_stage', "text"),
-            ('"date_"recorded', "date_"),
+            ('date_recorded', "date_"),
             ('time_recorded', "time_"),
             ('observer', "text"),  # reference unique id of user that observed growth or name of agent/3rd party
             ('reported_by', "asbie"),  # user reporting growth stage
