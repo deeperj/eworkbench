@@ -221,26 +221,15 @@ class DjangoGen(object):
     if line:
       self.d={}
       for l in line:
-<<<<<<< HEAD
-        self.d[l[0]]=l[1]
-      return [l[0] for l in line] #.replace(' ', '').split(',')
-=======
         if l[1]!='asbie':
           self.d[l[0]]=l[1]
       return self.d.keys() #.replace(' ', '').split(',')
->>>>>>> b17d575a16165d0f6a883900e576aaa4921f62c4
   #
   def define_members(self, args, kwds):
     memSeq = []
     if args:
       # memSeq = list(('\t\t\t\tself.%s = %s\n'%(a[0], a[0]) for a in args))
-<<<<<<< HEAD
-      #memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.options.ClassOptions.Args[a])[0], dsel(self.options.ClassOptions.Args[a])[1] if dsel(self.options.ClassOptions.Args[a])[1]!=None else ''  for a in args))
-      print('******',self.d)
-      memSeq = list(('\t\t\t%s = models.%s(%s)\n'%(a, dsel(self.d[a])[0], '')  for a in args))
-=======
       memSeq = list(('\t%s = models.%s(%s)\n'%(a, dsel(self.d[a])[0], '')  for a in args))
->>>>>>> b17d575a16165d0f6a883900e576aaa4921f62c4
     if kwds:
       for k,v in kwds.items():
         memSeq.append('\t\t\t\tself.%s = %s\n'%(k,v))
@@ -248,22 +237,6 @@ class DjangoGen(object):
   #
   def define_class(self):
     classSeq = []
-<<<<<<< HEAD
-    classSeq.append(self.code_line('#\n#\n#\nclass %s(%s):'%(
-        self.options.ClassOptions.Name,
-        ('object' if self.options.ClassOptions.Super==None else self.options.ClassOptions.Super)),
-        tabIn=0))
-    #classSeq.append(self.docstring(self.options.ClassOptions.DocString))
-    # add __init__
-    classSeq.append(self.define_method(  '__init__',
-                    self.parse_args(self.options.ClassOptions.Args),
-                    self.parse_kwds(self.options.ClassOptions.Kwds),
-                    tryExcept=False)
-                  )
-    if self.options.ClassOptions.Super != None:
-      classSeq.append(self.code_line('%s.__init__(self)'%self.options.ClassOptions.Super, tabIn=3))
-=======
->>>>>>> b17d575a16165d0f6a883900e576aaa4921f62c4
     memberLines = self.define_members(
           self.get_args(self.options.ClassOptions.Args), 
           self.get_kwds(self.options.ClassOptions.Kwds))
