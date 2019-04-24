@@ -562,7 +562,6 @@ class SpecialPaymentTerm(IntFlag):
     STORAGE_IN_CHARGE = 79
     STORAGE_MONTHLY_CHARGE = 83
 
-
 class TolerancePricingTerm(IntFlag):
     CONTRACT_BASIS = 2
     CONTRACT_FLAT_PRICE = 3
