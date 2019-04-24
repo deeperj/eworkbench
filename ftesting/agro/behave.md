@@ -21,8 +21,8 @@ The perform/action is executed during processing
 The response are various feedbacks sent via designated channels mainly: HTML web page, emails, SMS, electronic documents
 '''
 
-Feature: Agricultural programme
-	Scenario: Register a new programme
+Feature: 1. Agricultural programme
+	Scenario: 1. Register a new programme
 		Given a user wishes to register a new programme
 		When the registration form is filled
 		And the form is submitted
@@ -31,14 +31,14 @@ Feature: Agricultural programme
 		And the programme request marked as under review
 		And the team for review are notified by channels
 
-	Scenario: Review a programme for review
+	Scenario: 2. Review a programme for review
 		Given a programme request is available for review
 		When the request is reviewed
 		Then the request status is changed to REVIEWED
 		And the review generated and assigned to the request
 		And the review object is forwarded for approval
 		
-		Scenario: Review available for approval
+	Scenario: 3. Review available for approval
 		Given a valid review for request is available for approval
 		When the review is approved
 		Then the status of the review is set to APPROVED
@@ -46,8 +46,8 @@ Feature: Agricultural programme
 		And the original requester is notified
 		And the reviewers are notified
 	
-Feature: Farming Activities
-	Scenario Outline: Recording a farming <activity>
+Feature: 2. Farming Activities
+	Scenario Outline: 1. Recording a farming <activity>
 		Given an activity is performed on a farm
 		When the activity form is filled and submitted
 		Then an activity request is generated
@@ -62,8 +62,8 @@ Feature: Farming Activities
 		| farm visit |
 		| farm supplies |
 		
-Feature: Managing Sales 
-	Scenario: Recording a sale
+Feature: 3. Managing Sales 
+	Scenario: 1. Recording a sale
 		Given a farm produce is offered for sale
 		When the item is purchased
 		Then a sale order request is generated
@@ -72,21 +72,21 @@ Feature: Managing Sales
 		And the farm store inventory is decreased based on ordered item
 		And the order status is updated to CLOSED if sale was closed successfully
 	
-	Scenario: Farm Registration
+	Scenario: 2. Farm Registration
 		Given an unregistered farm is to be added to programme
 		When the farm owner or representative fills farm registration form
 		Then a registration request is generated
 		And the registration request is forwarded for review
 		And the review team is notified by channels
 		
-		Scenario: Registration request available for review
+	Scenario: 3. Registration request available for review
 			Given a registration request is available for review
 			When the review team makes recommendations
 			Then the recommendations are assigned to request
 			And the request status is updated to REVIEWED
 			And the recommendation forwarded for approval
 		
-		Scenario Outline: Recommendation available for approval
+	Scenario Outline: 4. Recommendation available for approval
 			Given a recommendation is available for approval
 			When the recommedation is received by assigned <user>
 			Then the user can approve recommendation if authorised
@@ -105,8 +105,8 @@ Feature: Managing Sales
 			| Other |
 			
 		
-Feature: Farming Quality Control
-	Scenario Outline: Recording a QA <activity>
+Feature: 4. Farming Quality Control
+	Scenario Outline: 1. Recording a QA <activity>
 		Given a QA <exercise> is performed on a farm
 		When the <exercise> form is filled and submitted
 		Then an activity request is generated
