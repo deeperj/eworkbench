@@ -1,6 +1,6 @@
-Django>=2
+django==2
 
-django-extensions>=2
+django-extensions==2
 
 djangorestframework==3.7.7
 
