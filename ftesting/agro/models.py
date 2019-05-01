@@ -33,6 +33,7 @@ options = {
 	: ,
 }
 
+#1
 class AgroDocument(Model):	
 	contract_number = models.UUIDField
 	farm = models.ForeignKey(Farm)
@@ -40,6 +41,7 @@ class AgroDocument(Model):
 	profile = models.CharField(**default_char)
 	
 	
+#2
 class Farrm(Model):
 	farm_fields = models.ForeignKey(FarmField)  # references the various arable regions on the farm
 	CharField(**name_default) = models.CharField(**default_char)
@@ -53,6 +55,7 @@ class Farrm(Model):
 	farming_system = model.CharField(**default_char)
 
 
+#3
 class FarmCertificate(Model):
 	first_certificate_date = model.DateField(**default_date)
 	certification_agency = model.CharField(**default_char)
@@ -62,6 +65,7 @@ class FarmCertificate(Model):
 	supporting_documents = BinaryField() 
 	
 	
+#4
 class CertificationValidity(Model):
 	valid_for_purpose = BooleanField(**bool_default)
 	farm_purpose = CharField(**default_char)
@@ -70,6 +74,7 @@ class CertificationValidity(Model):
 	expiry_date = DateField(**default_date) 
 
 	
+#5
 class FarmField(Model):
 	cultivation = ForeignKey(Cultivation)
 	name_of_field = CharField(**name_default)
@@ -83,18 +88,21 @@ class FarmField(Model):
 	assessment = ForeignKey('Assessment')
 
 
+#6
 class Assessment(Model):	
 	soil_sample  = ForeignKey('SoilSample')
 	analysis = ForeignKey('Analysis')
 	status = ForeignKey('RecordedStatus')
         
 		
+#7
 class GenericStatus(Model):            
 	staus = CharField(**code_default)
 	status_name = CharField(**name_default)
 	meaning = CharField(**text_default)
 	
 	
+#8
 class RecordedStatus(Model):
 	# Recorded Status @comment: references the present status of an entity
 	status = ForeignKey('GenericStatus')
@@ -102,6 +110,7 @@ class RecordedStatus(Model):
 	status_time = TimeField(**time_default)
 
 
+#9
 class LandUse(Model):
 	land_use = CharField(**text_default)  # CharField(**text_default) describing land use were land_use_code_type is insufficient
 	land_use_type = CharField(**code_default)  # values: PRIMARY_CROP CATCH_CROP PRECEEDING_CROP LAND_USE_RESTRICTION
@@ -109,6 +118,7 @@ class LandUse(Model):
 	land_use_restriction_type = CharField(**code_default)
 
 		
+#10
 class FertilizationRecommendation(Model):	 
 	crops asbie
 	agent asbie
@@ -119,6 +129,7 @@ class FertilizationRecommendation(Model):
 	application_measured_unit CharField(**code_default)            
 
 	
+#11
 class SampleBase(Model):	
 	recieved_date = DateField(**date_default)
 	received_time = TimeField(**number_default)
@@ -136,6 +147,7 @@ class SampleBase(Model):
 	analysis_time = TimeField(**number_default)
 
 
+#12
 class SoilSample(Model):	
 	soil_name = CharField(**text_default)  # Give alternative CharField(**name_default) to soil type where not available in CharField(**code_default)
 	soil_type = CharField(**code_default)
@@ -151,6 +163,7 @@ class SoilSample(Model):
 	soil_texture = CharField(**text_default)
         
 
+#13
 class AnalysisResult(Model):            
 	abstract_analysis = CharField(**text_default)
 	parameters = CharField(**text_default)  # delimited string list. e.g {PH_VALUE: "method" "value" "classification" }
@@ -160,6 +173,7 @@ class AnalysisResult(Model):
 	sample = ForeignKey('ReportedSample')
 
 
+#14
 class Fertilizer(Model):	
 	fertilizer_brand = CharField(**text_default)  # general market brand CharField(**name_default)
 	fertlizer_name = CharField(**text_default)  # specific manufacturer CharField(**name_default)
@@ -169,6 +183,7 @@ class Fertilizer(Model):
 	fertilizer_form = CharField(**text_default)
 
 
+#15
 class FieldCultivation(Model):         
 	farm_field = ForeignKey('FarmField')
 	reference_field_part = ForeignKey('FarmField')
@@ -176,6 +191,7 @@ class FieldCultivation(Model):
 	duration_unit = CharField(**code_default)                        
 
 	
+#16
 class Crop(Model):
 	farm_field = ForeignKey('FarmField')
 	monetary_value_per_hectar = DecimalField(**number_default)
@@ -186,6 +202,7 @@ class Crop(Model):
 	description CharField(**text_default)
         
 		
+#17
 class CropGrowthStage(Model):            
 	growth_stage = CharField(**text_default)
 	date_recorded = DateField(**date_default)
@@ -193,6 +210,7 @@ class CropGrowthStage(Model):
 	observer = CharField(**text_default)  # reference unique id of user that observed growth or name of agent/3rd party
 	reported_by = ForeignKey('User')  # user reporting growth stage
             
+#18
 class CropSpecies(Model):
 	crop = ForeignKey('Crop')	
 	name = CharField(**name_default)
@@ -200,6 +218,7 @@ class CropSpecies(Model):
 	genetically_modified_organism = BooleanField(**bool_default)
 
 
+#19
 class Harvest(Model):
 	crop = ForeignKey('Crop')
 	harvested_quantity = DecimalField(**number_default)
@@ -214,6 +233,7 @@ class Harvest(Model):
 	end_date = DateField(**date_default)
 
 
+#20
 class Activity(Model):
 	daily_start = DateTimefield(**datetime_default)
 	daily_end = DateTimefield(**datetime_default)
@@ -223,6 +243,7 @@ class Activity(Model):
 	percentage_executed = DecimalField(**number_default)
 	reference = GenericField()  # generic reference to Harvest Cultivation and other farming activities
 
+#21
 class Weather(Model):
 	temperature = DecimalField(**number_default)
 	temperature_unit = CharField(**code_default)
@@ -244,6 +265,7 @@ class Weather(Model):
 	measured_by = ForeignKey('User')
 
 
+#22
 class Contamination(Model):
 	contaimination_type = CharField(**text_default)
 	contamination_degree = CharField(**text_default)
@@ -252,6 +274,7 @@ class Contamination(Model):
 	reported_by = ForeignKey('User')
 	affected_fields = ForeignKey('FarmField')
                
+#23
 class AgriculturalProgramme 
 	# @e.g palm seedling donations
 	start = DateTimeField(**datetime_default)
@@ -265,6 +288,7 @@ class AgriculturalProgramme
 	comments = CharField(**text_default)
 	status = ForeignKey('RecordedStatus')
 
+#24
 class ProgrammePerformance(Model):
 	participants asbie  # reference a registered user or identifier for persons at event
 # actual record of participants as against invitation            
@@ -279,6 +303,7 @@ class ProgrammePerformance(Model):
 	event_coverage = BinaryField()  # uploaded photos or videos
 	
 	
+#25
 class MeasuredKPI(Model):
 	measured_kpis = CharField(**name_default)
 # delimited CharField(**text_default) for the KPIs measured with their unit
@@ -286,5 +311,6 @@ class MeasuredKPI(Model):
 	programme_performance = ForeignKey('ProgrammePerformance')
 
 		
+#26
 class FertilizerSample(SampleBase):
 	fertilizer = ForeignKey('Fertilizer')	
