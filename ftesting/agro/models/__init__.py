@@ -83,7 +83,7 @@ class BaseModel(models.Model):
 	deleted_at = DateTimeField(auto_now_add=False, auto_now=False)
 	enable_soft_delete = BooleanField(default=True)
 	force_delete = BooleanField(default=False)
-	
+
 	def save(self, *args, **kwargs):
 		# apply the soft delete concept on save
 		pass
@@ -92,7 +92,7 @@ class BaseModel(models.Model):
 		# apply the soft delete concept on delete
 		# if force_delete = True, then delete from db irrespective of settings
 		pass
-	
+
 	class Meta:
 		abstract = True
 			
@@ -112,45 +112,7 @@ class NamedCode(models.Model):
 		
 	def parse_from_enum(self, enum_type=None, enum_value=None, enum_name=None):
 		pass
-				
 	
-class ProgramPerformance(Event):
-	# Done
-    participants = models.TextField(**text_default)
-    program_activities = models.TextField(**text_default)
-    learning_points = models.TextField(**text_default)
-    recommendations = models.TextField(**text_default)
-    participants_suggestions = models.TextField(**text_default)    
-
-    class Meta:
-        ordering = ('-created',)
-
-    def __unicode__(self):
-        return u'%s' % self.pk
-
-    def get_absolute_url(self):
-        return reverse('agro_app_programperformance_detail', args=(self.pk,))
-
-    def get_update_url(self):
-        return reverse('agro_app_programperformance_update', args=(self.pk,))		
 
 
-class RecordedStatus(GenericStatus):
-	# Done
-    recorded_datetime = DateTimeField()	    
-	status = ForeignKey(GenericStatus)
-	object_id = PositiveIntergerField()
-	content_type = ForeignKey(ContentType, on_delete=models.DO_NOTHING)
-	content_object = GenericForeignKey()
 
-    class Meta:
-        ordering = ('-pk',)
-
-    def __unicode__(self):
-        return u'%s' % self.pk
-
-    def get_absolute_url(self):
-        return reverse('agro_app_recordedstatus_detail', args=(self.pk,))
-
-    def get_update_url(self):
-        return reverse('agro_app_recordedstatus_update', args=(self.pk,))

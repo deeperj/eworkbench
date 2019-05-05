@@ -1,12 +1,12 @@
+from django.db import models
+from django.db.models import CharField, ForeignKey, DateField, DateTimeField
 
-
-class FarmCertificate(models.Model):
-	# Done
-    certificate_name = models.CharField(max_length=255)    
+class FarmCertificate(BaseModel):	
+    certificate_name = models.CharField(**name_default)    
 	certificate_number = CharField(**name_default)
 	issuer = CharField(**name_default)
 	recipient = ForeignKey(User, null=True)  # owner/representative of the farm
-	issue_date = DateField()
+	issue_date = DateField(**date_default)
 	expiry_date = DateField()
     created = models.DateTimeField(auto_now_add=True, editable=False)  
 	farm = ForeignKey('Farm', on_delete=models.CASCADE)
@@ -18,10 +18,10 @@ class FarmCertificate(models.Model):
         return u'%s' % self.slug
 
     def get_absolute_url(self):
-        return reverse('agro_app_certificate_detail', args=(self.slug,))
+        return reverse('certification:farm_certificate:detail', args=(self.slug,))
 
     def get_update_url(self):
-        return reverse('agro_app_certificate_update', args=(self.slug,))
+        return reverse('certificate:farm_certificate:update', args=(self.slug,))
 		
 	def save(self, *args, **kwargs):
 		# certificate should not be updated only created

@@ -1,14 +1,17 @@
-from . import BaseModel
+from agro_farm_monitoring.db import BaseModel, name_default, char_default
+from django.db import models
+from django.db.models import CharField, TextField, DecimalField, DateTimeField, Date, UUIDField
+from django.contrib.auth import AbstractUserBase as User
 
-class Farm(BaseModel):
-	# Done
-    name = models.CharField(max_length=255)    
-	farm_purpose = models.TextField()
-	owner = models.ForeignKey(User)
-	location = model.CharField(**default_char)  # use address type or GPS reading here
-	description = model.CharField(**default_char)	
-	size = model.CharField(**default_char)  # gives the calculated land size for the farm. Not necessarily sum of field area
-	farming_system = model.CharField(**default_char)
+
+class Farm(BaseModel):	
+    farm_name = CharField(**name_default)    
+	farm_purpose = TextField()
+	owner = ForeignKey(User)
+	location = CharField(**char_default)  # use address type or GPS reading here
+	description = CharField(**char_default)	
+	size = CharField(**char_default)  # gives the calculated land size for the farm. Not necessarily sum of field area
+	farming_system = CharField(**char_default)
 
     class Meta:
         ordering = ('-created',)
@@ -17,14 +20,13 @@ class Farm(BaseModel):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_app_farm_detail', args=(self.pk,))
+        return reverse('farming:farm:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_app_farm_update', args=(self.pk,))
+        return reverse('farming:farm:update', args=(self.pk,))
 		
 
-class FarmField(Model):	
-	# Done
+class FarmField(Model):		
 	name_of_field = CharField(**name_default)	
 	unique_area_id = UUIDField(editable=False, default=generate_uuid)	
 	area = DecimalField(**number_default)
@@ -34,12 +36,11 @@ class FarmField(Model):
 	farm = ForeignKey(Farm, on_delete=models.CASCADE)
 	
 		
-class LandUse(models.Model):
-	# Done
+class LandUse(models.Model):	
     land_use_type = CharField(**code_default) # crop, animal, storage, processing farm usage
     land_use_restriction_type = CharField()
     land_use = TextField()
-	farm_field = ForeignKey('FarmField', on_delete=models.DO_NOTHING)
+	farm_field = ForeignKey('farming.FarmField', on_delete=models.DO_NOTHING)
 	duration_of_use = DurationField()
 	duration_unit = CharField(**code_default) 
 
@@ -50,29 +51,24 @@ class LandUse(models.Model):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_app_landuse_detail', args=(self.pk,))
+        return reverse('farming:farm_field:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_app_landuse_update', args=(self.pk,))
+        return reverse('farming:farm_field:update', args=(self.pk,))
 
-class Harvest(BaseModel):
-	# Done
+class Harvest(BaseModel):	
 	harvested_quantity = DecimalField(**number_default)
 	yield_quantity = DecimalField(**number_default)
 	quantity_unit = CharField(**code_default)
 	harvest_quality = CharField(**code_default)
 	start_date = DateField(**date_default)
 	end_date = DateField(**date_default)
-	harvest_field = ForeignKey('FarmField', on_delete=DO_NOTHING)
+	harvest_field = ForeignKey('farming.FarmField', on_delete=DO_NOTHING)
 	
 	class Meta:
 		abstract = True
 		
-class Species(models.Model):
-	# Done
-	# provide relations to both the Animal and Crop model
-	# specie = Specie(botanical_name=b, common_name=c, content_object=animal_instance)
-	# specie.save()
+class Species(models.Model):	
 	botanical_name = CharField(null=True, **name_default)
 	common_name = CharField(null=True, **name_default)
 	code = CharField(unique=True, **code_default)
@@ -85,7 +81,6 @@ class Species(models.Model):
 
 
 class GrowthStage(models.Model):
-	# 
     recorded_at = DateTimeField()    
 	growth_stage = CharField(**name_default)    
 	measurements = JSONField()  # measured growth in weight, height, width etc as may be applicable for crop/animal
@@ -101,13 +96,12 @@ class GrowthStage(models.Model):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_app_cropgrowthstage_detail', args=(self.pk,))
+        return reverse('faming:growth_stage:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_app_cropgrowthstage_update', args=(self.pk,))
+        return reverse('farming:growth_stage:update', args=(self.pk,))
 
-class Grouping(BaseModel):
-	# manage animals or plants in groups. E.g herds of cattle
+class Grouping(BaseModel):	
 	group_name = CharField(**name_default)
 	max_member_count = PositiveIntegerField()
 	min_member_count = PositiveIntegerField()
@@ -116,8 +110,7 @@ class Grouping(BaseModel):
 	content_object = GenericForeignKey()	
 
 
-class Weather(Event):
-	# Done
+class Weather(Event):	
 	precipitation = DecimalField(**number_default)
 	precipitation_unit = CharField(**code_default)
 	solar_radiation = DecimalField(**number_default)
@@ -134,7 +127,7 @@ class Weather(Event):
 	measured_date = DateField(**date_default)  # use this field for weather condition measured by on farm
 	measured_time = TimeField(**number_default)	
 	measured_by = CharField()  # store identifier for user    
-	farm = ForeignKey(Farm)
+	farm = ForeignKey('farming.Farm')
 
     class Meta:
         ordering = ('-created',)
@@ -143,7 +136,7 @@ class Weather(Event):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_app_weather_detail', args=(self.pk,))
+        return reverse('farming:weather:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_app_weather_update', args=(self.pk,))
+        return reverse('farming:weather:update', args=(self.pk,))

@@ -1,18 +1,18 @@
-# @todo: a code model holding all char codes, description, meaning, integer value and possibly enum mapping
-# @todo: codes should map to enum defined
+from django.db import models
+from django.db.models import CharField, ForeignKey
+from django.contrib.contenttypes.fields import GenericRelation
 
 	
-class Animal(BaseModel):
-    # Done
+class Animal(BaseModel):    
 	identifier = CharField(unique=True, **name_default)    
 	parternal_parent = ForeignKey('self', on_delete=models.DO_NOTHING)
 	maternal_parent = ForeignKey('self', on_delete=models.DO_NOTHING)
 	uuid = UUIDField(editable=False, default=generate_uuid)
-	species = GenericRelation(Species, related_query_name='animal') # @todo: implement in crop
-	animal_group = GenericRelation(Grouping, related_query_name='animal')
-	growth_stage = GenericRelation(GrowthStage, related_query_name='animal')
-	administered_treatment  = GenericRelation('TreatmentAdministration', related_query_name='animal')
-	infections = GenericRelation('InfectedPatient', related_query_name='animal')	
+	species = GenericRelation('farming.Species', related_query_name='animal') # @todo: implement in crop
+	animal_group = GenericRelation('farming.Grouping', related_query_name='animal')
+	growth_stage = GenericRelation('agric_programme.GrowthStage', related_query_name='animal')
+	administered_treatment  = GenericRelation('health.TreatmentAdministration', related_query_name='animal')
+	infections = GenericRelation('health.InfectedPatient', related_query_name='animal')	
 
     class Meta:
         ordering = ('-pk',)
@@ -21,20 +21,20 @@ class Animal(BaseModel):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_farm_monitoring_animal_detail', args=(self.pk,))
+        return reverse('animal_husbandry:animal:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_farm_monitoring_animal_update', args=(self.pk,))
+        return reverse('animal_husbandry:animal:update', args=(self.pk,))
 		
 
 class AnimalRearing(BaseModel):
-	farm_field = ForeignKey(FarmField)
-	cultivation = ForeignKey(Cultivation)		
-	animal = ManyToManyField(Animal)
+	farm_field = ForeignKey('farming.FarmField')
+	cultivation = ForeignKey('farming.Cultivation')		
+	animal = ManyToManyField('animal_husbandry.Animal')
 		
-class AnimalHarvest(Harvest):
-	# Done
-	animal = ForeignKey('Animal')	
+
+class AnimalHarvest(Harvest):	
+	animal = ForeignKey('animal_husbandry.Animal')	
 	
 	class Meta:
         ordering = ('-pk',)
@@ -43,15 +43,14 @@ class AnimalHarvest(Harvest):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_app_harvest_detail', args=(self.pk,))
+        return reverse('animal_husbandry:animal_harvest:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_app_harvest_update', args=(self.pk,))
+        return reverse('animal_husbandry:animal_harvest:update', args=(self.pk,))
 
 
 		
-class Feed(BaseModel):
-	# Done
+class Feed(BaseModel):	
     composition = TextField(**text_default)
     general_name = CharField(**name_default)
     manufacturer_name = CharField(**name_default)
@@ -67,13 +66,12 @@ class Feed(BaseModel):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_farm_monitoring_feed_detail', args=(self.pk,))
+        return reverse('animal_husbandry:feed:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_farm_monitoring_feed_update', args=(self.pk,))
+        return reverse('animal_husbandry:feed:update', args=(self.pk,))
 
-class FeedAdministration(models.Model):
-	# Done
+class FeedAdministration(models.Model):	
 	quantity_disbursed = DecimalField(**decimal_default)
     feeding_location = CharField(**char_default)
     feeding_conditions = TextField(**text_default)
@@ -87,14 +85,13 @@ class FeedAdministration(models.Model):
 
 
 
-class AnimalBreeder(BaseModel):
-    # Done
+class AnimalBreeder(BaseModel):    
     quantity = IntegerField()
     acquisition_cost = DecimalField(**decimal_default)
     target_harvest_date = DateField(**date_default)
     target_harvest_quantity = DecimalField(**decimal_default)
     target_harvest_value = DecimalField(**decimal_default)
-    species = ForeignKey(Species, on_delete=models.CASCADE, related_name="breeders")
+    species = ForeignKey('farming.Species', on_delete=models.CASCADE, related_name="breeders")
 
     class Meta:
         ordering = ('-pk',)
@@ -103,9 +100,9 @@ class AnimalBreeder(BaseModel):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_farm_monitoring_breeder_detail', args=(self.pk,))
+        return reverse('animal_husbandry:animal_breeder:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_farm_monitoring_breeder_update', args=(self.pk,))
+        return reverse('animal_husbandry:animal_breeder:update', args=(self.pk,))
 
 	

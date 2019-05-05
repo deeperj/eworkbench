@@ -1,7 +1,11 @@
 
 
+<<<<<<< HEAD
 class AgroDocument(BaseModel):
 	# Done
+=======
+class AgroDocument(BaseModel):	
+>>>>>>> a085422370c0e60395065ff7be57349a6341fa2d
 	receiving_party = ForeignKey(User, on_delete=models.DO_NOTHING)
 	sending_party = ForeignKey(User, on_delete=models.DO_NOTHING)
 	description = TextField()
@@ -15,16 +19,18 @@ class AgroDocument(BaseModel):
 		abstract = True	
 
 
-class Signatures(models.Model):
-    # Done
-	documents = ManyToManyField('farm_monitoring.AgroDocument')	
+class Signatures(models.Model):    
+	documents = ManyToManyField('AgroDocument')	
 	signature_hash = CharField()
 	signature_image = BinaryField()
 	signature_timestamp = DateTimeField()
 
 
-class GenericStatus(NamedCodes):
-    # Done
+class GenericStatus(NamedCodes):    
+	code = CharField(**name_default)
+	name = CharField(**name_default)
+	description = TextField()
+	
 	def save(self, *args, **kwargs):
 		# ensure only codes from the status enum are saved
 		pass
@@ -36,7 +42,27 @@ class GenericStatus(NamedCodes):
         return u'%s' % self.pk
 
     def get_absolute_url(self):
-        return reverse('agro_app_genericstatus_detail', args=(self.pk,))
+        return reverse('util:generic_status:detail', args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('agro_app_genericstatus_update', args=(self.pk,))		
+        return reverse('util:generic_status:update', args=(self.pk,))		
+
+
+class RecordedStatus(BaseModel):	
+	status = ForeignKey('GenericStatus')
+    recorded_datetime = DateTimeField()	    	
+	object_id = PositiveIntergerField()
+	content_type = ForeignKey(ContentType, on_delete=models.DO_NOTHING)
+	content_object = GenericForeignKey()
+
+    class Meta:
+        ordering = ('-pk',)
+
+    def __unicode__(self):
+        return u'%s' % self.pk
+
+    def get_absolute_url(self):
+        return reverse('util:recorded_status:detail', args=(self.pk,))
+
+    def get_update_url(self):
+        return reverse('util:recorded_status:update', args=(self.pk,))
