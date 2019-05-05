@@ -27,7 +27,7 @@ class Animal(BaseModel):
         return reverse('agro_farm_monitoring_animal_update', args=(self.pk,))
 		
 
-class AnimalRaring():
+class AnimalRearing(BaseModel):
 	farm_field = ForeignKey(FarmField)
 	cultivation = ForeignKey(Cultivation)		
 	animal = ManyToManyField(Animal)
