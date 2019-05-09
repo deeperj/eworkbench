@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>	
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <span class="anchor" id="farmValidate"></span>
+            <hr class="my-5">
+            <!-- farm validate -->
+<div class="card card-outline-secondary">
+              <div class="card-header">
+                <h3 class="mb-0 align-center" >Farm Weather Report</h3>
+              </div>
+              <div class="card-body">
+                <form autocomplete="off" class="form" role="form">
+                  <fieldset>
+				  <div class="row">
+						<div class="col-sm-6">
+							<label class="mb-0" for="temperature">Temperature</label>					
+							 <input class="form-control" id="temperature" name="temperature" required="true" type="number">
+						</div>						
+						<div class="col-sm-6">	
+						 <label class="mb-0" for="temperature_unit">Unit</label>
+							 <div>
+									<div class="btn-group">
+										<button type="button"  class="btn btn-secondary">Select unit</button>
+										<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+										  <span data-bind="label" class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+										  <a class="dropdown-item" href="#">C</a>
+										  <a class="dropdown-item" href="#">K</a>
+										  <a class="dropdown-item" href="#">F</a>
+										  <a class="dropdown-item" href="#">R</a>
+										</div>
+								  </div>
+																								
+							</div>
+						</div>								
+
+							
+				  
+                   
+										
+						<div class="col-sm-6">	
+						
+							  
+						</div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<label class="mb-0" for="wind_speed">Wind speed</label>					
+							 <input class="form-control" id="wind_speed" name="wind_speed" required="true" type="number">
+						</div>						
+						<div class="col-sm-6">	
+						 <label class="mb-0" for="wind_speed_unit">Unit</label>
+							 <div>
+									<div class="btn-group">
+										<button type="button"  class="btn btn-secondary">Select unit</button>
+										<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+										  <span data-bind="label" class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+										  <a class="dropdown-item" href="#">mph</a>
+										  <a class="dropdown-item" href="#">m/s</a>
+										  <a class="dropdown-item" href="#">ft/s</a>
+										  <a class="dropdown-item" href="#">km/h</a>
+										</div>
+								  </div>
+																								
+							</div>
+						</div>								
+
+																		
+						<div class="col-sm-6">	
+						
+							  
+						</div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<label class="mb-0" for="humidity">Humidity</label>					
+							 <input class="form-control" id="humidity" name="humidity" required="true" type="number">
+						</div>						
+						<div class="col-sm-6">	
+						 <label class="mb-0" for="humidity_unit">Unit</label>
+							 <div>
+									<div class="btn-group">
+										<button type="button"  class="btn btn-secondary">Select unit</button>
+										<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+										  <span data-bind="label" class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+										  <a class="dropdown-item" href="#">gm/m3</a>
+
+										</div>
+								  </div>
+																								
+							</div>
+						</div>								
+
+							
+				  
+                   
+										
+						<div class="col-sm-6">	
+						
+							  
+						</div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<label class="mb-0" for="precipitation">Precipitation</label>					
+							 <input class="form-control" id="precipitation" name="precipitation" required="true" type="number">
+						</div>						
+						<div class="col-sm-6">	
+						 <label class="mb-0" for="humidity_unit">Unit</label>
+							 <div>
+									<div class="btn-group">
+										<button type="button"  class="btn btn-secondary">Select unit</button>
+										<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+										  <span data-bind="label" class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+										  <a class="dropdown-item" href="#">mm</a>
+										  <a class="dropdown-item" href="#">cm</a>
+										  <a class="dropdown-item" href="#">inches</a>
+
+										</div>
+								  </div>
+																								
+							</div>
+						</div>								
+
+							
+				  
+                   
+										
+						<div class="col-sm-6">	
+						
+							  
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<label class="mb-0" for="solar_radiation">Solar radiation</label>					
+							 <input class="form-control" id="solar_radiation" name="solar_radiation" required="true" type="number">
+						</div>						
+						<div class="col-sm-6">	
+						 <label class="mb-0" for="humidity_unit">Unit</label>
+							 <div>
+									<div class="btn-group">
+										<button type="button"  class="btn btn-secondary">Select unit</button>
+										<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+										  <span data-bind="label" class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+										  <a class="dropdown-item" href="#">kW/m2</a>
+										  <a class="dropdown-item" href="#">mW/cm2</a>
+										  <a class="dropdown-item" href="#">kWh/(m2 day)</a>
+										  <a class="dropdown-item" href="#">MJ/m2 per year</a>
+
+										</div>
+								  </div>
+																								
+							</div>
+						</div>	
+						</div>
+						
+						<div class="jumbotron" style="margin-top: 15px; background-color: #F8F9F9">
+									<form id="live_form">
+										 <div class="form-group" style="margin-top: -50px">
+										  <label class="control-label h4 ">
+										   Reported By:
+										  </label>
+										  <div>
+										   <div class="radio">
+											<label class="radio">
+											 <input name="rating" type="radio" value="Bad"/>
+											 Weather Station
+											</label>
+										   </div>
+										   <div class="radio">
+											<label class="radio">
+											 <input name="rating" type="radio" value="Fair"/>
+											 Farmer
+											</label>
+										   </div>
+										  
+										  </div>
+										 </div>
+										 <div class="form-group hidden">
+												<div class="row">
+														<div class="col-sm-4">
+															<label class="mb-0" for="reported_date">Reported Date</label>						
+															 <input type="date" name="reported_date" max="3000-12-31" min="1000-01-01" class="form-control">
+														</div>						
+														<div class="col-sm-4">	
+														 <label class="mb-0" for="reported_time">Reported Time</label>
+															<input type="time" name="reported_time"  class="form-control" id="timepicker" width="" />
+														
+															<script>
+																$('#timepicker').timepicker({
+																	uiLibrary: 'bootstrap4'
+																});
+															</script>										
+														</div>	
+														<div class="col-sm-4">
+															<label class="mb-0" for="measured_date">Measured Date</label>						
+															 <input type="date" name="measured_date" max="3000-12-31" min="1000-01-01" class="form-control">
+															</div>						
+												</div>
+										 </div>
+										 <div class="form-group hidden">
+										 <div class="row">
+																			
+														<div class="col-sm-6">	
+														 <label class="mb-0" for="measured_time">Measured Time</label>
+															<input type="time" name="measured_time"  class="form-control" id="timepicker" width="" />
+														
+															<script>
+																$('#timepicker').timepicker({
+																	uiLibrary: 'bootstrap4'
+																});
+															</script>										
+														</div>	
+														<div class="col-sm-6">
+															<label class="mb-0" for="measured_by">Measured by</label>						
+															 <input type="text" name="measured_by" maxlength="255" class="form-control">
+															</div>						
+												</div>
+										 
+										 </div>
+										</form>	
+										</div>
+					<hr class="my-5">
+							<div class="col-lg-12" style="margin-top:10px">
+								<div class="row">
+									<div class="col-xs-4">
+										
+									</div>
+									<div class="col-xs-4">
+										<button class="btn btn-success btn-lg" type="button">Submit</button>
+									</div>
+									<div class="col-xs-4">
+										
+									</div>
+								</div>
+							</div>						
+                  </fieldset>
+                </form>
+              </div>
+            </div><!-- /farm validate -->
+          </div><!--/col-->
+        </div>        
+      </div><!--/col-->
+    </div><!--/row-->
+  </div><!--/container-->
+
+  
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

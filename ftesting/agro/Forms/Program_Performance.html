@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <span class="anchor" id="farmValidate"></span>
+            <hr class="my-5">
+            <!-- farm validate -->
+            <div class="card card-outline-secondary">
+              <div class="card-header">
+                <h3 class="mb-0 align-center" >Agricultural Program</h3>
+              </div>
+              <div class="card-body">
+                <form autocomplete="off" class="form" role="form">
+                  <fieldset>
+				  <div class="row">
+						<div class="col-sm-6">	
+							<label class="mb-0" for="startDate">Start Date</label>						
+							 <input type="date" name="sdate" max="3000-12-31" min="1000-01-01" class="form-control">
+						</div>
+						<div class="col-sm-6">
+					<label class="mb-0" for="endDate">End Date</label>						
+							 <input type="date" name="edate" max="3000-12-31" min="1000-01-01" class="form-control">
+						</div>						
+											
+					</div>
+				  
+				<section >
+							<label class="mb-0" for="invitations">Invitations</label>
+							<div class="row mb-1">
+							  <div class="col-lg-12">
+								<input class="form-control" id="invitations" name="invitations" required="true" type="text" maxlength="255">
+							  </div>
+							</div>
+							<label class="mb-0" for="consultants">Consultants</label>
+							<div class="row mb-1">
+							  <div class="col-lg-12">
+								<input class="form-control" id="consultants" name="consultants" required="true" type="text" maxlength="255">
+							  </div>
+							</div>
+							<label class="mb-0" for="purpose">Purpose</label>
+							<div class="row mb-1">
+							  <div class="col-lg-12">
+								<textarea class="form-control" id="purpose" name="purpose" required="true" rows="2"></textarea>
+							  </div>
+							</div>
+							<label class="mb-0" for="description">Description</label>
+							<div class="row mb-1">
+							  <div class="col-lg-12">
+								<textarea class="form-control" id="description" name="description" required="" rows="3"></textarea>
+							  </div>
+							</div>
+							<label class="mb-0" for="targets">Targets</label>
+							<div class="row mb-1">
+							  <div class="col-lg-12">
+								<textarea class="form-control" id="targets" name="targets" required="" rows="2"></textarea>
+							  </div>
+							</div>
+							<label class="mb-0" for="comments">Comments</label>
+							<div class="row mb-1">
+							  <div class="col-lg-12">
+								<textarea class="form-control" id="comments" name="comments" required="" rows="3"></textarea>
+							  </div>
+							</div>
+
+					</section>
+					<hr>
+							<button class="btn btn-secondary btn-lg float-middle" type="submit">Submit</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div><!-- /farm validate -->
+          </div><!--/col-->
+        </div>
+        
+      </div><!--/col-->
+    </div><!--/row-->
+  </div><!--/container-->
+
+
+</body>
+</html>
