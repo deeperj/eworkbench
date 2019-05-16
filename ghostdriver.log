@@ -1,0 +1,26 @@
+[INFO  - 2019-05-16T08:07:58.203Z] GhostDriver - Main - running on port 55161
+[INFO  - 2019-05-16T08:07:58.798Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2019-05-16T08:07:58.799Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.customHeaders:  - {}
+[INFO  - 2019-05-16T08:07:58.799Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2019-05-16T08:07:58.799Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: b7c860b0-77b1-11e9-966d-7963b2732612
+[ERROR - 2019-05-16T08:08:01.559Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.onError - msg: TypeError: Attempted to assign to readonly property.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-05-16T08:08:01.559Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.onError - stack:
+  da (https://s.imgur.com/desktop-assets/js/main.5126cfea3e3035b5607b.js:57)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-05-16T08:08:01.585Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.onError - msg: Unhandled promise rejection TypeError: Attempted to assign to readonly property.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-05-16T08:08:01.586Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.onError - stack:
+  (anonymous function) (https://s.imgur.com/desktop-assets/js/main.5126cfea3e3035b5607b.js:26)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-05-16T08:08:01.740Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.onError - msg: Unable to get NonIab Vendor list.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2019-05-16T08:08:01.740Z] Session [b7c860b0-77b1-11e9-966d-7963b2732612] - page.onError - stack:
+  (anonymous function) (https://static.quantcast.mgr.consensu.org/v17/cmpui-popup.js:1)
+
+  phantomjs://platform/console++.js:263 in error
