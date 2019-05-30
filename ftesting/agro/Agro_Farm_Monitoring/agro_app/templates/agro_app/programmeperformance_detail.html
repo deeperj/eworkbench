@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_programmeperformance_list' %}">ProgrammePerformance Listing</a></p>
+<table class="table">
+<tr><td>comments</td><td>{{ object.comments }}</td></tr>
+<tr><td>learning_points</td><td>{{ object.learning_points }}</td></tr>
+<tr><td>recommendations</td><td>{{ object.recommendations }}</td></tr>
+<tr><td>participant_suggestions</td><td>{{ object.participant_suggestions }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit ProgrammePerformance</a>
+
+{% endblock %}

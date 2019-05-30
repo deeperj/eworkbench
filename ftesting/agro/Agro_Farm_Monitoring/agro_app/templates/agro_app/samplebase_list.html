@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_samplebase_list' %}">SampleBase Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>recieved_date</td>
+    <td>received_time</td>
+    <td>description</td>
+    <td>comment</td>
+    <td>weight</td>
+    <td>weight_unit</td>
+    <td>volume</td>
+    <td>volume_unit</td>
+    <td>analysis_date</td>
+    <td>analysis_time</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.recieved_date }}</td>
+    <td>{{ object.received_time }}</td>
+    <td>{{ object.description }}</td>
+    <td>{{ object.comment }}</td>
+    <td>{{ object.weight }}</td>
+    <td>{{ object.weight_unit }}</td>
+    <td>{{ object.volume }}</td>
+    <td>{{ object.volume_unit }}</td>
+    <td>{{ object.analysis_date }}</td>
+    <td>{{ object.analysis_time }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_samplebase_create' %}">Create new SampleBase</a>
+{% endblock %}

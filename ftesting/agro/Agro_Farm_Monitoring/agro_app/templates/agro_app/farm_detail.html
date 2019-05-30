@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_farm_list' %}">Farm Listing</a></p>
+<table class="table">
+<tr><td>description</td><td>{{ object.description }}</td></tr>
+<tr><td>purpose</td><td>{{ object.purpose }}</td></tr>
+<tr><td>farming_system</td><td>{{ object.farming_system }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Farm</a>
+
+{% endblock %}

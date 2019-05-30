@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_harvest_list' %}">Harvest Listing</a></p>
+<table class="table">
+<tr><td>harvested_quantity</td><td>{{ object.harvested_quantity }}</td></tr>
+<tr><td>yield_quantity</td><td>{{ object.yield_quantity }}</td></tr>
+<tr><td>quantity_unit</td><td>{{ object.quantity_unit }}</td></tr>
+<tr><td>harvest_quality</td><td>{{ object.harvest_quality }}</td></tr>
+<tr><td>start_date</td><td>{{ object.start_date }}</td></tr>
+<tr><td>end_date</td><td>{{ object.end_date }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Harvest</a>
+
+{% endblock %}

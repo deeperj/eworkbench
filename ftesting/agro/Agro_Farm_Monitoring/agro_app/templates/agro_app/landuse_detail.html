@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_landuse_list' %}">LandUse Listing</a></p>
+<table class="table">
+<tr><td>land_use_restriction_type</td><td>{{ object.land_use_restriction_type }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit LandUse</a>
+
+{% endblock %}

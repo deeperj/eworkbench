@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_weather_list' %}">Weather Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>temperature</td>
+    <td>temperature_unit</td>
+    <td>wind_speed</td>
+    <td>wind_speed_unit</td>
+    <td>humidity</td>
+    <td>humidity_unit</td>
+    <td>precipitation</td>
+    <td>precipitation_unit</td>
+    <td>solar_radiation</td>
+    <td>solar_radiation_unit</td>
+    <td>reported_date</td>
+    <td>reported_time</td>
+    <td>measured_date</td>
+    <td>measured_time</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.temperature }}</td>
+    <td>{{ object.temperature_unit }}</td>
+    <td>{{ object.wind_speed }}</td>
+    <td>{{ object.wind_speed_unit }}</td>
+    <td>{{ object.humidity }}</td>
+    <td>{{ object.humidity_unit }}</td>
+    <td>{{ object.precipitation }}</td>
+    <td>{{ object.precipitation_unit }}</td>
+    <td>{{ object.solar_radiation }}</td>
+    <td>{{ object.solar_radiation_unit }}</td>
+    <td>{{ object.reported_date }}</td>
+    <td>{{ object.reported_time }}</td>
+    <td>{{ object.measured_date }}</td>
+    <td>{{ object.measured_time }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_weather_create' %}">Create new Weather</a>
+{% endblock %}
