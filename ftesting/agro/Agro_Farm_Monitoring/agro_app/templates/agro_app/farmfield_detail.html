@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_farmfield_list' %}">FarmField Listing</a></p>
+<table class="table">
+<tr><td>name_of_field</td><td>{{ object.name_of_field }}</td></tr>
+<tr><td>field_identification</td><td>{{ object.field_identification }}</td></tr>
+<tr><td>unique_area_id</td><td>{{ object.unique_area_id }}</td></tr>
+<tr><td>area</td><td>{{ object.area }}</td></tr>
+<tr><td>area_unit</td><td>{{ object.area_unit }}</td></tr>
+<tr><td>spatial_data</td><td>{{ object.spatial_data }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit FarmField</a>
+
+{% endblock %}

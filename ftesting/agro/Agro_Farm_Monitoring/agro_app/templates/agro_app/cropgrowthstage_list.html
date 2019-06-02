@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_cropgrowthstage_list' %}">CropGrowthStage Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>growth_stage</td>
+    <td>date_recorded</td>
+    <td>time_recorded</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.growth_stage }}</td>
+    <td>{{ object.date_recorded }}</td>
+    <td>{{ object.time_recorded }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'agro_app_cropgrowthstage_create' %}">Create new CropGrowthStage</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_soilsample_list' %}">SoilSample Listing</a></p>
+<table class="table">
+<tr><td>soil_name</td><td>{{ object.soil_name }}</td></tr>
+<tr><td>soil_type</td><td>{{ object.soil_type }}</td></tr>
+<tr><td>reference_part_of_field</td><td>{{ object.reference_part_of_field }}</td></tr>
+<tr><td>spatial_data</td><td>{{ object.spatial_data }}</td></tr>
+<tr><td>depth</td><td>{{ object.depth }}</td></tr>
+<tr><td>depth_unit</td><td>{{ object.depth_unit }}</td></tr>
+<tr><td>depth_range</td><td>{{ object.depth_range }}</td></tr>
+<tr><td>analysis_method</td><td>{{ object.analysis_method }}</td></tr>
+<tr><td>soil_heaviness</td><td>{{ object.soil_heaviness }}</td></tr>
+<tr><td>soil_nutrient_classification</td><td>{{ object.soil_nutrient_classification }}</td></tr>
+<tr><td>soil_texture</td><td>{{ object.soil_texture }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit SoilSample</a>
+
+{% endblock %}

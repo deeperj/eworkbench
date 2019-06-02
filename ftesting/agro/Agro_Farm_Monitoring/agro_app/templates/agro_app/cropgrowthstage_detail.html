@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_cropgrowthstage_list' %}">CropGrowthStage Listing</a></p>
+<table class="table">
+<tr><td>growth_stage</td><td>{{ object.growth_stage }}</td></tr>
+<tr><td>date_recorded</td><td>{{ object.date_recorded }}</td></tr>
+<tr><td>time_recorded</td><td>{{ object.time_recorded }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit CropGrowthStage</a>
+
+{% endblock %}

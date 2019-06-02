@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_analysisresult_list' %}">AnalysisResult Listing</a></p>
+<table class="table">
+<tr><td>abstract_analysis</td><td>{{ object.abstract_analysis }}</td></tr>
+<tr><td>description</td><td>{{ object.description }}</td></tr>
+<tr><td>method</td><td>{{ object.method }}</td></tr>
+<tr><td>comment</td><td>{{ object.comment }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit AnalysisResult</a>
+
+{% endblock %}

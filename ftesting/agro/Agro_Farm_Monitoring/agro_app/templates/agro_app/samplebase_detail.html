@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_samplebase_list' %}">SampleBase Listing</a></p>
+<table class="table">
+<tr><td>recieved_date</td><td>{{ object.recieved_date }}</td></tr>
+<tr><td>received_time</td><td>{{ object.received_time }}</td></tr>
+<tr><td>description</td><td>{{ object.description }}</td></tr>
+<tr><td>comment</td><td>{{ object.comment }}</td></tr>
+<tr><td>weight</td><td>{{ object.weight }}</td></tr>
+<tr><td>weight_unit</td><td>{{ object.weight_unit }}</td></tr>
+<tr><td>volume</td><td>{{ object.volume }}</td></tr>
+<tr><td>volume_unit</td><td>{{ object.volume_unit }}</td></tr>
+<tr><td>analysis_date</td><td>{{ object.analysis_date }}</td></tr>
+<tr><td>analysis_time</td><td>{{ object.analysis_time }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit SampleBase</a>
+
+{% endblock %}

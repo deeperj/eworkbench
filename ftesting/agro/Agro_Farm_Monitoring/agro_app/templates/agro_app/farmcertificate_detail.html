@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_farmcertificate_list' %}">FarmCertificate Listing</a></p>
+<table class="table">
+<tr><td>first_certificate_date</td><td>{{ object.first_certificate_date }}</td></tr>
+<tr><td>certification_agency</td><td>{{ object.certification_agency }}</td></tr>
+<tr><td>certificate_number</td><td>{{ object.certificate_number }}</td></tr>
+<tr><td>certification_code</td><td>{{ object.certification_code }}</td></tr>
+<tr><td>supporting_documents</td><td>{{ object.supporting_documents }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit FarmCertificate</a>
+
+{% endblock %}

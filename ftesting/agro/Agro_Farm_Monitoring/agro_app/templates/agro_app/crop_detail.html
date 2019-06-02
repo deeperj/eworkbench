@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_crop_list' %}">Crop Listing</a></p>
+<table class="table">
+<tr><td>monetary_value_per_hectar</td><td>{{ object.monetary_value_per_hectar }}</td></tr>
+<tr><td>monetary_value_currency</td><td>{{ object.monetary_value_currency }}</td></tr>
+<tr><td>botanical_name</td><td>{{ object.botanical_name }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Crop</a>
+
+{% endblock %}

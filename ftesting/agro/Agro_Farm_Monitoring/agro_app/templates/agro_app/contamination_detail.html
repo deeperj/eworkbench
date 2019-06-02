@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_contamination_list' %}">Contamination Listing</a></p>
+<table class="table">
+<tr><td>contaimination_type</td><td>{{ object.contaimination_type }}</td></tr>
+<tr><td>contamination_degree</td><td>{{ object.contamination_degree }}</td></tr>
+<tr><td>noticed_date</td><td>{{ object.noticed_date }}</td></tr>
+<tr><td>noticed_time</td><td>{{ object.noticed_time }}</td></tr>
+<tr><td>start</td><td>{{ object.start }}</td></tr>
+<tr><td>end</td><td>{{ object.end }}</td></tr>
+<tr><td>invitations</td><td>{{ object.invitations }}</td></tr>
+<tr><td>consultants</td><td>{{ object.consultants }}</td></tr>
+<tr><td>purpose</td><td>{{ object.purpose }}</td></tr>
+<tr><td>description</td><td>{{ object.description }}</td></tr>
+<tr><td>targets</td><td>{{ object.targets }}</td></tr>
+<tr><td>comments</td><td>{{ object.comments }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Contamination</a>
+
+{% endblock %}

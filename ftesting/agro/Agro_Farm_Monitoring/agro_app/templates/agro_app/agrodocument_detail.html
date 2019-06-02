@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'agro_app_agrodocument_list' %}">AgroDocument Listing</a></p>
+<table class="table">
+<tr><td>profile</td><td>{{ object.profile }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit AgroDocument</a>
+
+{% endblock %}
