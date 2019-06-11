@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch on Android",
+            "type": "nativescript",
+            "request": "launch",
+            "platform": "android",
+            "appRoot": "${workspaceRoot}",
+            "sourceMaps": true,
+            "watch": true
+        },
+        
+        
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
