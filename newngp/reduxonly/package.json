@@ -1,0 +1,17 @@
+{
+  "name": "reduxonly",
+  "version": "1.0.0",
+  "description": "redux test",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "John A",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.0.1"
+  }
+}
