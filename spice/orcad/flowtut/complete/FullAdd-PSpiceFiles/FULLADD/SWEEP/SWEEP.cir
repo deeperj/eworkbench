@@ -1,0 +1,19 @@
+** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+** Creating circuit file "SWEEP.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.STMLIB "../../../fulladd-pspicefiles/fulladd/tran/input.stl" 
+* From [PSPICE NETLIST] section of C:\WINDOWS\pspice.ini file:
+.lib "E:\OrCAD\OrCAD_16.0\tools\pspice\library\nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100u 0 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\FULLADD.net" 
+
+
+.END

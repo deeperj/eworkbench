@@ -1,0 +1,2952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html xmlns="http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>OrCAD Flow Tutorial -- 2</title>
+<META NAME="Approver" CONTENT="Technical Publications">
+<META NAME="Author" CONTENT="Technical Publications">
+<META NAME="CreateDate" CONTENT="2018-04-16">
+<META NAME="CreateTime" CONTENT="1523863589">
+<META NAME="DataType" CONTENT="Manuals">
+<META NAME="Description" CONTENT="This tutorial uses the Full adder design to take you through the PCB design cycle.  This tutorial illustrates how to use OrCAD tools for the complete PCB design cycle.">
+<META NAME="DocTitle" CONTENT="OrCAD Flow Tutorial">
+<META NAME="DocType" CONTENT="Getting Started">
+<META NAME="EdmsRelease" CONTENT="FM-Wiki-2.0_HF2">
+<META NAME="FileTitle" CONTENT="2">
+<META NAME="FileType" CONTENT="Chapter">
+<META NAME="Group" CONTENT="OrCAD Lite">
+<META NAME="Keyword" CONTENT="flowtut">
+<META NAME="Language" CONTENT="English">
+<META NAME="ModifiedDate" CONTENT="2018-04-16">
+<META NAME="ModifiedTime" CONTENT="1523863589">
+<META NAME="NextFile" CONTENT="chap3.html">
+<META NAME="PageCount" CONTENT="34">
+<META NAME="Platform" CONTENT="ALL">
+<META NAME="PrevFile" CONTENT="chap1.html">
+<META NAME="Product" CONTENT="Allegro Design Entry CIS, OrCAD Capture, PSpice">
+<META NAME="ProductFamily" CONTENT="Silicon-Package-Board Co-Design, Silicon-Package-Board Co-Design, Silicon-Package-Board Co-Design">
+<META NAME="ProductVersion" CONTENT="17.2-2016">
+<META NAME="RightsManagement" CONTENT="Copyright 19962018 Cadence Design Systems Inc.">
+<META NAME="Title" CONTENT="OrCAD Flow Tutorial -- 2">
+<META NAME="TopicTags" CONTENT="FALSE">
+<META NAME="Version" CONTENT="17.2-2016">
+  </head>
+  <body style="margin-left: 5%;">
+    <a name="pagetop"></a>
+    <a name="firstpage"></a>
+    <!-- Begin Buttons -->
+    <table width="650" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td height="36" width="650" colspan="10">
+          <img src="images/header_doc.gif" width="650" height="34">
+        </td>
+      </tr>
+      <tr>
+        <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                </td>
+<td height="20" width="73">
+<a href="flowtutTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<a href="flowtutIX.html"><img src="../support/nav2_index.gif" border="0"></a>
+</td>
+
+        <td>
+          <a href="chap1.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+        </td>
+        <td>
+          <a href="chap3.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+        </td>
+        <td height="20">
+          <a>
+<a href="flowtut.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+          </a>
+        </td>
+        <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+        </td>
+        <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+        </td>
+        <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+        </td>
+        <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+        </td>
+      </tr>
+    </table>
+    <!-- End Buttons -->
+    <p>
+    <hr>
+    <p>
+      <h3>
+        <center>
+          <font >
+            <div>OrCAD&#174; Flow Tutorial</div>
+            <font >
+              <div></div>
+            </font>
+          </font>
+        </center>
+      </h3>
+      <br>
+    </p>
+    <div>
+      <h1>2<a name="1050845">&nbsp;</a></h1>
+      <h1><a name="1055445">Creating a schematic design</a></h1>
+      <p><a name="1055446">This chapter consists of the following sections:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1068809" title="2" name="1055447"><font color="#0000ff"><u>Objective</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1056719" title="2" name="1060650"><font color="#0000ff"><u>Design example</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1061816" title="2" name="1060578"><font color="#0000ff"><u>Creating a design in Capture</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1058253" title="2" name="1061472"><font color="#0000ff"><u>Processing a design</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1062884" title="2" name="1062982"><font color="#0000ff"><u>Summary</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1062761" title="2" name="1055712"><font color="#0000ff"><u>What's next</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1055659" title="2" name="1055725"><font color="#0000ff"><u>Recommended reading</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <h2><a name="1068809">Objective</a></h2>
+      <p><a name="1068810">To create a schematic design in OrCAD Capture. In this chapter, you will be introduced to basic design steps, such as placing a part, connecting parts using wires, adding ports, generating parts, and so on.</a></p>
+      <p><a name="1069111">The steps for preparing your design for simulation using PSpice and for taking your design for placement and routing to the PCB board layout tool are also covered in this chapter.</a></p>
+      <h2><a name="1056719">Design example</a></h2>
+      <p><a name="1061814">In this chapter, you will create a full adder design in OrCAD Capture. The full adder design covered in this tutorial is a complex hierarchical design that has two hierarchical blocks referring to the same half adder design.</a></p>
+      <h4><a name="1063357">Duration:</a></h4>
+      <p><a name="1063385">40 minutes</a></p>
+      <h2><a name="1061816">Creating a design in Capture</a></h2>
+      <h3><a name="1056785">Guidelines</a></h3>
+      <p><a name="1056467">When creating a new circuit design in OrCAD Capture, it is recommended that you follow the guidelines listed below.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056503">Avoid spaces in pathnames and filenames. This is necessary to get your design into downstream products, such as OrCAD PCB Editor or OrCAD PCB Router.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1078579">Avoid using special characters for naming nets, nodes, projects, or libraries.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1078580">While naming nets, use of the following illegal characters might cause the netlister to fail:</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1070686">leading and trailing white spaces</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1070815">! (exclamation mark)</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.872">
+              <div>&nbsp;</div>
+            </td>
+            <td width="32.128319999999995">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/bs_bullet_sub.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1071009">&#39; (single&#45;quote)</a></td>
+          </tr>
+        </table>
+      </div>
+      <h3><a name="1065038">Creating a project</a></h3>
+      <p><a name="1065290">To create a new project, we will use Capture&#39;s Project Wizard. The Project Wizard provides you with the framework for creating any kind of project.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056634">Launch Capture.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056646">From the File menu, choose </a><font color="#000000"><em>New - Project</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056647">In the New Project dialog box, specify the project name as </a><font size="2" face="'Courier New'" color="#000000">FullAdd</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056653">To specify the project type, select</a><font color="#000000"><em> PSpice Analog&nbsp;or&nbsp;Mixed A&#47;D</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1064829">An Analog or Mixed A&#47;D project can easily be simulated using PSpice. It also ensures that your design flows smoothly into the PCB layout tool for your board design.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056696">Specify the location where you want the project files to be created and click </a><font color="#000000"><em>OK</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1079210">The Create PSpice Project dialog box appears.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056853">In the Create PSpice Project dialog box, select </a><font color="#000000"><em>Create a blank project</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1056865">When you create a blank project, the project can be simulated in PSpice, but libraries are not configured by default. When you base your project on an existing project, the new project has same configured libraries. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1056871">Click </a><font color="#000000"><em>OK</em></font> to create the FullAdd project with the above specifications.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <font size="3"><img src="images/tip.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <font size="3"><a name="1056839">In case you already have a schematic design file (</a><font size="2" face="'Courier New'" color="#000000">.dsn</font>) that you want to simulate using PSpice, you need to create an Analog or Mixed A&#47;D project using the <font color="#000000"><em>File&nbsp;- &nbsp;New&nbsp;-&nbsp;Project</em></font> command and then add your design to it.</font>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1064605">The FullAdd project is created. In the project manager window, a design file, </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font>, is created. Below the design file, a schematic folder with the name <font size="2" face="'Courier New'" color="#000000">SCHEMATIC1</font> is created. This folder has a schematic page named <font size="2" face="'Courier New'" color="#000000">PAGE1</font>.</p>
+      <h4><a name="1064649">Renaming the schematic folder and the schematic page</a></h4>
+      <p><a name="1064724">You will now modify the design to change the name of both the schematic folder and the schematic page, to HALFADD.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064659">In the project manager window, right&#45;click </a><font size="2" face="'Courier New'" color="#000000">SCHEMATIC1</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1078102">You might need to expand </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font> to see SCHEMATIC1.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064663">From the pop&#45;up menu, select </a><font color="#000000"><em>Rename</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064668">In the Rename Schematic dialog box, specify the name as </a><font size="2" face="'Courier New'" color="#000000">HALFADD</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064669">Similarly, right&#45;click PAGE1 and from the pop&#45;up menu select </a><font color="#000000"><em>Rename</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064670">In the Rename Page dialog box, specify the page name as </a><font size="2" face="'Courier New'" color="#000000">HALFADD</font> and click OK.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1064784">After renaming of the schematic folder and the schematic page, the directory structure in the project manager window should be to similar to the following figure.</a></p>
+      <p align="left"><a name="1064700"> <br><img src="images/1726_project_manager.png" width="421" height="226" alt=""><br></a></p>
+      <h4><a name="1067524">Using a design template</a></h4>
+      <p><a name="1067840">Before you start with the design creation process in OrCAD Capture, you can specify the default characteristics of your project using the design template. A design template can be used to specify default fonts, page size, title block, grid references and so on. To set up a design template in OrCAD Capture, use the Design Template dialog box. </a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/arrwrite.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1068034">To open the Design Template dialog box, from the Options drop&#45;down menu choose Design Template.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1068070">To know more about setting up the design template, see </a><font color="#000000"><em>OrCAD Capture User Guide</em></font>.</p>
+      <h3><a name="1056892">Creating a flat design</a></h3>
+      <p><a name="1056928">In this section, we will create a simple flat half adder design with X and Y as inputs and SUM and CARRY as outputs.</a></p>
+      <p align="left"><a name="1056939"><img src="images/chap2.4.1.02.png" width="675" height="403" alt=""><br></a></p>
+      <h4><a name="1057055">Adding parts</a></h4>
+      <p><a name="1069662">To add parts to your design:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057103">Choose </a><font color="#000000"><em>Place </em></font>- <font color="#000000"><em>Part</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057121">In the Place Part dialog box, first select the library from which the part is to be added and then instantiate the part on the schematic page. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1075680">The gates shown in </a><font color="Blue"><u>Figure&nbsp;2&#45;1</u></font>  are available in the <font size="2" face="'Courier New'" color="#000000">7400.OLB</font>. </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <font size="3"><img src="images/tip.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <font size="3"><a name="1075681">Expand and use the </a><font color="#000000"><em>Search for Part </em></font>section in the Place Part dialog box, to search the library to which the required part belongs.</font>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1075682">To add </a><font size="2" face="'Courier New'" color="#000000">7400.OLB</font> to the project, click the <font color="#000000"><em>Add Library</em></font> button (<img src="images/chap2.4.1.03.png" width="24" height="25" alt="">).</blockquote>
+      <blockquote><a name="1077736"><img src="images/1726_place_part_libraries.png" width="283" height="327" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1075683">Browse to </a><font size="2" face="'Courier New'" color="#000000"><em>&#60;</em></font><font size="2" face="'Courier New'" color="#000000"><em>installation_directory&#62;</em></font><font size="2" face="'Courier New'" color="#000000">&#47;tools&#47;capture&#47;library&#47;pspice&#47;7400.olb</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1075684">Select </a><font size="2" face="'Courier New'" color="#000000">7400.OLB</font> and click <font color="#000000"><em>Open</em></font>. Alternatively, you can double&#45;click <font size="2" face="'Courier New'" color="#000000">7400.OLB</font>.</blockquote>
+      <blockquote><a name="1075685">The 7400 library appears in the </a><font color="#000000"><em>Libraries</em></font> list box.</blockquote>
+      <blockquote><a name="1057257"><br><img src="images/1726_place_part_libraries_2.png" width="244" height="259" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057232">Select </a><font color="#000000"><em>7400</em></font> in the <font color="#000000"><em>Libraries</em></font> list.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1077857">Select </a><font color="#000000"><em>7408</em></font> (AND gate) from <font color="#000000"><em>Part List</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1079733">Note the PSpice symbol (<img src="images/pspice_part.jpg" width="20" height="17" alt="">) and the layout symbol (<img src="images/pcb_footprint.jpg" width="19" height="18" alt="">) that appear below the Packaging box. This denotes that the selected part can be simulated using PSpice and is enabled for the PCB Editor flow.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1077846">Click the </a><font color="#000000"><em>Place Part</em></font> button (<img src="images/place_part_icon.gif" width="20" height="21" alt="">) or click <font color="#000000"><em>Enter</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1078005">The part symbol is attached to the pointer.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1077919">Click the schematic page to place the part.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	8.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057236">Place three instances of the AND gate, </a><font size="2" face="'Courier New'" color="#000000">7408</font>, on the schematic page as shown in the following figure.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1057237"><img src="images/3andgates_b.gif" width="223" height="307" alt=""><br> </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	9.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057241">Right&#45;click and select </a><font color="#000000"><em>End Mode</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	10.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057311">Similarly, place an OR gate (7432) and two NOT gates (7404) as shown in the following figure.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1057340"><img src="images/parts.gif" width="435" height="349" alt=""><br></a></blockquote>
+      <h4><a name="1057350">Connecting parts</a></h4>
+      <p><a name="1057358">After placing the required parts on the schematic page, you need to connect the parts. </a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057354">From the Place menu, choose Wire.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1057444">The pointer changes to a crosshair.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057445">Draw the wire from the output of the AND gate, U2A, to the one of the inputs of the OR gate, U1B. To start drawing the wire, click the connection point of the output pin, </a><font size="2" face="'Courier New'" color="#000000">pin3</font>, on the AND gate.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057447">Drag the cursor to input pin, </a><font size="2" face="'Courier New'" color="#000000">pin4</font>, of the OR gate (7432) and click the pin to end the wire.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1057432">Clicking on any valid connection point ends a wire.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1057371">Similarly, add wires to the design until all parts are connected as shown in the following figure.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1057372"><img src="images/nets.gif" width="492" height="349" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1065759">To stop wiring, right&#45;click and select </a><font color="#000000"><em>End Wire</em></font>. The pointer changes to the default arrow.</td>
+          </tr>
+        </table>
+      </div>
+      <h4><a name="1057373">Adding ports</a></h4>
+      <p><a name="1069798">To add input and output ports to the design, complete the following sequence of steps:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058052">From the </a><font color="#000000"><em>Place</em></font> menu in Capture, select <font color="#000000"><em>Hierarchical Port</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1058039">The Place Hierarchical Port dialog box appears.</a></blockquote>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1061745">Alternatively, you can select the Place port button <img src="images/chap2.4.1.12.png" width="42" height="29" alt=""> from the Tool Palette.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1081099">Add a library, </a><font size="2" face="'Courier New'" color="#000000">CAPSYM</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058066">From the </a><font color="#000000"><em>Libraries</em></font> list box, select <font size="2" face="'Courier New'" color="#000000">CAPSYM</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058073">First add input ports. From the </a><font color="#000000"><em>Symbols</em></font> list, select <font size="2" face="'Courier New'" color="#000000">PORTRIGHT&#45;R</font> and click <font color="#000000"><em>OK</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058074">Place two instances of the port as shown in the following figure.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1058115"><img src="images/chap2.4.1.13.png" width="676" height="398" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071382">Right&#45;click and select </a><font color="#000000"><em>End Mode</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058116">To rename the ports to indicate input signals X and Y, double&#45;click the port name. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1079317">Avoid double&#45;clicking the port symbol, as it displays Property Editor instead of Display Properties dialog box.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	8.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058120">In the Display Properties dialog box, change the value of the Name property to X and click OK. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1062728">You can also use the Property Editor to edit the property values of a component. To know the details, see </a><font color="#000000"><em>OrCAD Capture User Guide</em></font>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	9.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058121">Similarly, change the name of the second port to Y.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1058117">You cannot use the Place Part dialog box for placing ports, because ports in CAPSYM.OLB are only symbols and not parts. Only parts are listed in the Place Part dialog box.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	10.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058125">Add two output ports as shown in the following figure. To do this, select </a><font size="2" face="'Courier New'" color="#000000">PORTLEFT&#45;L</font> from the <font size="2" face="'Courier New'" color="#000000">CAPSYM</font> library.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+<blockquote>        <font color="#000000"><a name="1078068"><img src="images/chap2.4.1.14.png" width="300" height="200" alt=""><br></a></font></blockquote>
+      </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	11.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1060816">Rename the ports to SUM (connected to the OR gate) and CARRY (connected to the AND gate), respectively.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	12.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058181">Save the design. </a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1058197">The half adder design is ready. The next step is to create a full&nbsp;adder design that will use the half adder design.</a></p>
+      <h3><a name="1058204">Creating a hierarchical design </a></h3>
+      <p><a name="1058230">In Capture, you can create hierarchical designs using one of the following methods:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1061784" title="2" name="1058415"><font color="#0000ff"><u>Bottom&#45;up method</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a href="#1060541" title="2" name="1060239"><font color="#0000ff"><u>Top&#45;down method</u></font></a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1060340">Another method of creating a hierarchical design is to create parts or symbols for the designs at the lowest level, and save the symbols in a user&#45;defined library. You can later add the user&#45;defined library in your projects and use these symbols in the schematic. For example, you can create a part for the half adder design and then instead of hierarchical blocks, use this part in the schematic. To know more about this approach, see </a><a href="#1059320" title="2"><font color="#0000ff"><u>Generating parts for a schematic</u></font></a>.</p>
+      <p><a name="1061782">In this section, we will create the full adder hierarchical design. The half adder design created in the </a><a href="#1056892" title="2"><font color="#0000ff"><u>Creating a flat design</u></font></a> section will be used as the lowest level design.</p>
+      <h4><a name="1061784">Bottom&#45;up method</a></h4>
+      <p><a name="1060673">When you create a hierarchical design using the bottom&#45;up methodology, you need to follow these steps.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1060699">Create the lowest&#45;level design.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1071502">Create higher&#45;level designs that instantiate the lower&#45;level designs in the form of hierarchical blocks. </a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1071633">In this section, we will create a full adder design using bottom&#45;up methodology. The steps involved are:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071634">Creating a project in Capture. To view the steps, see </a><a href="#1065038" title="2"><font color="Blue"><u>Creating a project</u></font></a><a href="#1065038" title="2"></a>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1060874">Creating the lowest&#45;level design. In the full adder design example, the lowest&#45;level design is the half adder design. To go through the steps for creating the half&nbsp;adder design, see </a><a href="#1056892" title="2"><font color="#0000ff"><u>Creating a flat design</u></font></a>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1060873">Creating the higher&#45;level design. Create a schematic for the full adder design that uses the half adder design created in the previous step. To go through the steps, see </a><a href="#1071649" title="2"><font color="#0000ff"><u>Creating the full adder design</u></font></a>.</td>
+          </tr>
+        </table>
+      </div>
+      <h4>
+        <em></em>
+        <em><a name="1071649">Creating the full adder design</a></em>
+      </h4>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058208">In the project manager window, right&#45;click </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font> and select <font color="#000000"><em>New Schematic</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071689">In the New Schematic dialog box, specify the name of the new schematic folder as </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> and click <font color="#000000"><em>OK</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1071690">In the project manager window, the FULLADD folder appears below </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1065796">Save the design.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058982">To make the full adder circuit as the root design (high&#45;level design), right&#45;click </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> and from the pop&#45;up menu select <font color="#000000"><em>Make Root</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1058998">The </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> folder moves up and a forward slash appears in the folder.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058233">Right&#45;click </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> and select <font color="#000000"><em>New Page</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058588">In the New Page in Schematic: `FULLADD' dialog box, specify the page name as </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> and click <font color="#000000"><em>OK</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1058603">A new page, </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font>, gets added below the schematic folder <font size="2" face="'Courier New'" color="#000000">FULLADD</font>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058599">Double&#45;click the </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> page to open it for editing.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	8.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058219">From the </a><font color="#000000"><em>Place</em></font> menu, choose <font color="#000000"><em>Hierarchical Block</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	9.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058630">In the Place Hierarchical Block dialog box, specify the reference as </a><font size="2" face="'Courier New'" color="#000000">HALFADD_A1</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	10.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058639">Specify the </a><font color="#000000"><em>Implementation Type</em></font> as <font size="2" face="'Courier New'" color="#000000">Schematic View</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	11.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058656">Specify the </a><font color="#000000"><em>Implementation name</em></font> as <font size="2" face="'Courier New'" color="#000000">HALFADD</font> and click <font color="#000000"><em>OK</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1058681">The cursor changes to a crosshair. </a></blockquote>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1079385">For more information on Primitive option as well as on Path and Filename options in the Hierarchical Block dialog box, see </a><font color="#000000"><em>OrCAD Capture User Guide</em></font>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	12.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058689">Draw a rectangle on the schematic page. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1058693">A hierarchical block with input and output ports is drawn on the page. </a></blockquote>
+      <blockquote><a name="1058734"><img src="images/halfadderblock.gif" width="242" height="254" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	13.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058841">If required, resize the block. Also, reposition the input and output ports on the block.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1058846">To verify if the hierarchical block is correct, right&#45;click the block and select </a><font color="#000000"><em>Descend Hierarchy</em></font>. The half adder design you created earlier should appear.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	14.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058832">Place another instance of the hierarchical block on the schematic page. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071765">Select the hierarchical block. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071769">From the </a><font color="#000000"><em>Edit</em></font> menu, choose <font color="#000000"><em>Copy</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	c.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071773">From the </a><font color="#000000"><em>Edit</em></font> menu, choose <font color="#000000"><em>Paste</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	d.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071795">Place the instance of the block at the desired location.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p>
+<blockquote><blockquote>        <font color="#000000"><font color="#000000"><strong>Note: </strong></font></font></blockquote></blockquote>
+<blockquote><blockquote>        <font color="#000000"><a name="1071796">Alternatively, you can use the </a><font size="2" face="'Courier New'" color="#000000">&#60;CTRL&#62;+&#60;C&#62;</font> and <font size="2" face="'Courier New'" color="#000000">&#60;CTRL&#62;+&#60;V&#62;</font> keys to copy&#45;paste the block.</font></blockquote></blockquote>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	15.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061770">By default, the reference designator for the second hierarchical block is HALFADD_A2. Double&#45;click the reference designator, and change the reference value to </a><font size="2" face="'Courier New'" color="#000000">HALFADD_B1</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	16.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058937">Using the Place Part dialog box, add an OR gate (7432) to the schematic. (See </a><font color="Blue"><u>Figure&nbsp;2&#45;2</u></font>.)</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	17.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073268">To connect the blocks, add wires to the circuit. From the </a><font color="#000000"><em>Place</em></font> menu, choose <font color="#000000"><em>Wire</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	18.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1058969">Draw wires from all four ports on each of the hierarchical blocks. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	19.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059014">Add wires until all the connections are made as shown in the following figure.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1059025"><img src="images/chap2.4.1.16.png" width="453" height="292" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	20.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059317">Add stimulus to the design. In the Place Part dialog box, use the Add Library button to add </a><font size="2" face="'Courier New'" color="#000000">SOURCSTM.OLB</font> to the design. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1059613">This library is located at </a><font size="2" face="'Courier New'" color="#000000"><em>&#60;installation_directory&#62;</em></font><font size="2" face="'Courier New'" color="#000000">&#47;tools&#47;capture&#47;library&#47;pspice</font>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	21.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059318">From the Part List, select </a><font size="2" face="'Courier New'" color="#000000">DigStim1</font> and click <font color="#000000"><em>Place Part</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1059336">The symbol gets attached to the cursor.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	22.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1071837">Place the symbol at three input ports: port X of the HALFADD_A1, port X and Y of HALFADD_B1.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	23.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059367">Right&#45;click the schematic and select </a><font color="#000000"><em>End Mode</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	24.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073327">Specify the value of the </a><font size="2" face="'Courier New'" color="#000000">Implementation</font> property as <font size="2" face="'Courier New'" color="#000000">Carry</font>, <font size="2" face="'Courier New'" color="#000000">X</font>, and <font size="2" face="'Courier New'" color="#000000">Y</font>, respectively. See <font color="Blue"><u>Figure&nbsp;2&#45;2</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	25.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073331">Add an output port, </a><font size="2" face="'Courier New'" color="#000000">CARRY_OUT</font>, to the output of the OR gate. (See <font color="Blue"><u>Figure&nbsp;2&#45;2</u></font>.)</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059417">Select </a><font color="#000000"><em>Place - Hierarchical Port</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+<blockquote>        <font color="#000000"><a name="1081808">The Place Hierarchical Port dialog box opens.</a></font></blockquote>
+      </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1081803">From the list of libraries, select </a><font size="2" face="'Courier New'" color="#000000">CAPSYM</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	c.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064128">From the list of symbols, select </a><font size="2" face="'Courier New'" color="#000000">PORTLEFT&#45;L</font> and click <font color="#000000"><em>OK</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	d.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064129">Place the output port as shown in the </a><font color="Blue"><u>Figure&nbsp;2&#45;2</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	e.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059448">Double&#45;click the port name and change the port to </a><font size="2" face="'Courier New'" color="#000000">CARRY_OUT</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	26.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059449">Save the design.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1059455"><img src="images/chap2.4.1.17.png" width="666" height="360" alt=""><br></a></blockquote>
+      <p><a name="1059575">We have only added digital components to the design so far. We will now add a bipolar junction transistor to the </a><font size="2" face="'Courier New'" color="#000000">SUM</font> port of the <font size="2" face="'Courier New'" color="#000000">HALFADD_A1</font> block. </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064167">Select the Place Part tool button. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064168">In the Place Part dialog box, click the Add Library button. </a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1075718">Select </a><font size="2" face="'Courier New'" color="#000000">ANALOG.OLB</font> and <font size="2" face="'Courier New'" color="#000000">BIPOLAR.OLB</font> and click Open.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064187">Select </a><font size="2" face="'Courier New'" color="#000000">ANALOG.OLB</font> and from the part list, add resistor, <font size="2" face="'Courier New'" color="#000000">R</font>. Place this resistor on the schematic and connect one end of the resistor to the SUM port of HALFADD_A1. See <font color="Blue"><u>Figure&nbsp;2&#45;3</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1075736">From </a><font size="2" face="'Courier New'" color="#000000">BIPOLAR.OLB</font>, select <font size="2" face="'Courier New'" color="#000000">Q2N2222</font> and place it on the schematic. See <font color="Blue"><u>Figure&nbsp;2&#45;3</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1064193"><font size="2" face="'Courier New'" color="#000000">BIPOLAR.OLB </font></a>Complete the circuit by adding a collector resistance, collector voltage, and ground. See <font color="Blue"><u>Figure&nbsp;2&#45;3</u></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1073581"><font color="#000000"><strong>Adding Collector Voltage</strong></font></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073485">To add the voltage, add the </a><font size="2" face="'Courier New'" color="#000000">SOURCE.OLB</font> library to the project.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073592">From the Part List, select </a><font size="2" face="'Courier New'" color="#000000">VDC</font> and click Place Part.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	c.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073610">Place the voltage source on the schematic. See </a><font color="Blue"><u>Figure&nbsp;2&#45;3</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	d.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073607">By default, the source is of 0 volts. Using the Property Editor, change it to a voltage source of 5V. To do this, double&#45;click the voltage source.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	e.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073782">In the Property Editor window, change the value of the </a><font size="2" face="'Courier New'" color="#000000">DC</font> parameter to 5.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	f.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073830">Save and close the Property Editor window.</a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1073563"><font color="#000000"><strong>Adding Ground</strong></font></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073493">To add ground, select </a><font color="#000000"><em>Place - Ground</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073560">From the part list, select </a><font size="2" face="'Courier New'" color="#000000">0</font> and click OK.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	c.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073595">Place the ground symbol on the schematic. See </a><font color="Blue"><u>Figure&nbsp;2&#45;3</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1068747">Add a connector, </a><font size="2" face="'Courier New'" color="#000000">CON2</font> to the circuit. To do this, add a Capture library, <font size="2" face="'Courier New'" color="#000000">CONNECTOR.OLB</font> to the project. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1068771"><font size="2" face="'Courier New'" color="#000000">CONNECTOR.OLB</font></a> is located at <font size="2" face="'Courier New'" color="#000000"><em>&#60;installation_directory&#62;</em></font><font size="2" face="'Courier New'" color="#000000">&#47;tools&#47;capture&#47;library</font><font color="#000000"><em>.</em></font></blockquote>
+      <blockquote><a name="1064233"><img src="images/chap2.4.1.18.png" width="674" height="388" alt=""><br></a></blockquote>
+      <p><a name="1064149">You have successfully created the full adder hierarchical design using the bottom&#45;up methodology. As the components used in this design are from the PSpice library, you can simulate this design using PSpice.</a></p>
+      <h4><a name="1060541">Top&#45;down method</a></h4>
+      <p><a name="1060901">When you create a hierarchical design using the top&#45;down methodology, use the following sequence of steps:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1060902">Create the top&#45;level design using functional blocks, the inputs and outputs of which are known.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="31.999679999999998">
+              <div>
+                <nobr>
+                  <font color="#000000"><img src="images/b_bullet.gif" alt="ParagraphBullet" border="0"></font>
+                </nobr>
+              </div>
+            </td>
+            <td><a name="1060903">Create a schematic design for the functional block used in the top&#45;level design.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1060904">This section provides an overview of the steps to be followed for creating a full adder using top&#45;down methodology. </a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1060891">Create a FullAdd project. <br>To view the steps, see </a><a href="#1065038" title="2"><font color="Blue"><u>Creating a project</u></font></a><a href="#1065038" title="2"></a>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061190">Create the top&#45;level design, using the following steps:</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061194">From the </a><font color="#000000"><em>Place</em></font> menu, choose <font color="#000000"><em>Hierarchical Block</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <p>
+<blockquote><blockquote>        <font color="#000000"><font color="#000000"><strong>Note: </strong></font></font></blockquote></blockquote>
+<blockquote><blockquote>        <font color="#000000"><a name="1061198">Alternatively, you can select the Place hierarchical block button <img src="images/chap2.4.1.19.png" width="41" height="34" alt="">from the Tool Palette.</a></font></blockquote></blockquote>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061294">In the Place Hierarchical Block dialog box, specify the </a><font color="#000000"><em>Reference</em></font> as <font size="2" face="'Courier New'" color="#000000">HALFADD_A1</font>, <font color="#000000"><em>Implementation Type</em></font> as <font size="2" face="'Courier New'" color="#000000">Schematic View</font>, <font color="#000000"><em>Implementation name</em></font> as <font size="2" face="'Courier New'" color="#000000">HALFADD</font>, and click <font color="#000000"><em>OK</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+<blockquote>        <font color="#000000"><a name="1061327">See </a><a href="#1058630" title="2"><font color="#0000ff"><u>step&nbsp;9</u></font></a> to <a href="#1058656" title="2"><font color="#0000ff"><u>step&nbsp;11</u></font></a> in the <a href="#1061784" title="2"><font color="#0000ff"><u>Bottom&#45;up method</u></font></a> section.</font></blockquote>
+      </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	c.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061204">Draw the hierarchical block as required. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+<blockquote>        <font color="#000000"><a name="1061258">Note that unlike the hierarchical block drawn in the bottom&#45;up methodology, the hierarchical block in the top&#45;down methodology does not have port information attached to it.</a></font></blockquote>
+      </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	d.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061485">Select the hierarchical block and then from the </a><font color="#000000"><em>Place</em></font> menu, choose <font color="#000000"><em>Hierarchical Pins</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	e.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061510">In the Place Hierarchical Pin dialog box, specify the pin name as </a><font size="2" face="'Courier New'" color="#000000">X</font>, Type as <font size="2" face="'Courier New'" color="#000000">Input</font>, and Width as <font size="2" face="'Courier New'" color="#000000">Scalar</font> and click OK.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	f.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061523">Place the pin as shown in the following figure.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p>
+<blockquote><blockquote>        <font color="#000000"><a name="1061528"><img src="images/chap2.4.1.20.png" width="451" height="187" alt=""><br></a></font></blockquote></blockquote>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	g.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061587">Similarly, add another input pin Y and two output pins, SUM and CARRY, as shown in the following figure.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p>
+<blockquote><blockquote>        <font color="#000000"><a name="1061614"><img src="images/hierarchicalpart.gif" width="302" height="201" alt=""><br></a></font></blockquote></blockquote>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	h.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061405">Place another hierarchical block with the Implementation Type as HALFADD. The easiest way to do this is to copy the existing hierarchical block and paste it on the schematic page. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+<blockquote>        <font color="#000000"><a name="1061427">By default, the reference value of the second hierarchical block is HALFADD_A2. Change this value to HALFADD_B1.</a></font></blockquote>
+      </blockquote>
+      <p>
+<blockquote><blockquote>        <font color="#000000"><a name="1061662"><img src="images/2blocks.gif" width="248" height="388" alt=""><br></a></font></blockquote></blockquote>
+      </p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	i.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061346">Complete the full adder circuit by adding ports, wires, and stimuli. See </a><font color="Blue"><u>The full adder circuit</u></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	j.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061359">Save the design.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061932">Draw the lowest&#45;level design using the steps listed below. For the full adder design example, the lowest&#45;level design is a half adder circuit.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061982">To draw the half adder design, right&#45;click any one of the HALFADD hierarchical block.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061992">From the pop&#45;up menu, select </a><font color="#000000"><em>Descend Hierarchy</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	c.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061998">The New Page in Schematic: `HALFADD' dialog box appears. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote>
+<blockquote>        <font color="#000000"><a name="1062030">Specify the page name as </a><font size="2" face="'Courier New'" color="#000000">HALFADD</font> and click <font color="#000000"><em>OK</em></font>.</font></blockquote>
+      </blockquote>
+      <blockquote><a name="1062042">A new schematic pages appears with two input ports, X and Y, and two output ports, SUM and CARRY.</a></blockquote>
+      <blockquote><a name="1062201"><img src="images/chap2.4.1.23.png" width="675" height="189" alt=""><br></a></blockquote>
+      <blockquote><a name="1062056">You can now draw the half adder circuit on this schematic page using the steps covered in the </a><a href="#1056892" title="2"><font color="Blue"><u>Creating a flat design</u></font></a><a href="#1056892" title="2"></a>. Also see <font color="Blue"><u>Figure&nbsp;2&#45;1</u></font>.</blockquote>
+      <blockquote><a name="1062083">In the project manager window, a new schematic folder HALFADD gets added below </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font>.</blockquote>
+      <blockquote><a name="1062091"><img src="images/1726_project_manager_2.png" width="297" height="267" alt=""><br></a></blockquote>
+      <h4><a name="1059320">Generating parts for a schematic</a></h4>
+      <p><a name="1059737">Instead of creating a hierarchical block for the half adder design, you can generate a part for the half adder design and then reuse the part in any design as and when required. </a></p>
+      <p><a name="1060143">In this section of the tutorial, we will generate a part for the half adder circuit that you created in the </a><a href="#1056892" title="2"><font color="#0000ff"><u>Creating a flat design</u></font></a> section of this chapter.</p>
+      <p><a name="1059760">To generate a part from a circuit, complete the following steps.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059785">In the project manager window, select the </a><font size="2" face="'Courier New'" color="#000000">HALFADD</font> folder. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059801">From the </a><font color="#000000"><em>Tools</em></font> menu, choose <font color="#000000"><em>Generate Part</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059806">In the Generate Part dialog box, specify the location of the design file that contains the circuit for which the part is to be made. </a></td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1059823">For this design example, specify the location of </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font>.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059925">In the </a><font color="#000000"><em>Netlist&#47;source file type</em></font> drop&#45;down list box, specify the source type as <font size="2" face="'Courier New'" color="#000000">Capture Schematic&#47;Design</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059926">In the </a><font color="#000000"><em>Part Name</em></font> text box, specify the name of the part that is to be created, as <font size="2" face="'Courier New'" color="#000000">HALFADD</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059857">Specify the name and the location of the library that will contain this new part being created. For the current design example, specify the library name as </a><font size="2" face="'Courier New'" color="#000000">fulladd.olb</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059878">If you want the source schematic to be saved along with the new part, select the </a><font color="#000000"><em>Copy schematic to library</em></font> check box. For this design, select the check box.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	8.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059904">Ensure that the </a><font color="#000000"><em>Create new part </em></font>option is selected. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	9.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1059888">To specify the schematic folder that contains the design for which the part is to be made, select </a><font size="2" face="'Courier New'" color="#000000">HALFADD</font> from the <font color="#000000"><em>Source Schematic name</em></font> drop&#45;down list box. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1060177"><img src="images/1726_generate_part.png" width="452" height="537" alt=""><br></a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	10.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1060010">Click </a><font color="#000000"><em>OK</em></font> to generate the HALFADD part.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1082650">The Split Part Section Input Spreadsheet dialog box opens. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	11.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1082725">Click </a><font color="#000000"><em>Save</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1060056">A new library, </a><font size="2" face="'Courier New'" color="#000000">fulladd.olb</font>, is generated and is visible under the <font size="2" face="'Courier New'" color="#000000">Outputs</font> folder in the project manager window. The new library also gets added in the Place Part dialog box. You can now use the Place Part dialog box to add the half adder part in any design.</p>
+      <h3><a name="1058234">Navigating through a hierarchical design</a></h3>
+      <p><a name="1058246">To navigate to the lower levels of the hierarchy, right&#45;click a hierarchical block and choose </a><font color="#000000"><em>Descend Hierarchy</em></font>. </p>
+      <p><a name="1062496">Similarly, to move up the hierarchy, right&#45;click and select </a><font color="#000000"><em>Ascend Hierarchy</em></font>. </p>
+      <p><a name="1062514">The </a><font color="#000000"><em>Ascend Hierarchy</em></font> and <font color="#000000"><em>Descend Hierarchy</em></font> menu options are also available in the <font color="#000000"><em>View</em></font> drop&#45;down menu.</p>
+      <p><a name="1066552">While working with hierarchical designs, you can make changes to the hierarchical blocks as well as to the designs at the lowest level. </a></p>
+      <p><a name="1066553">To keep the various hierarchical levels updated with the changes, you can use the Synchronize options available in the View drop&#45;down menu. </a></p>
+      <p><a name="1066554">Select </a><font color="#000000"><em>Synchronize Up</em></font> when you have made changes in the lowest&#45;level design and want these changes to be reflected higher up in the hierarchy.</p>
+      <p><a name="1066555">Select </a><font color="#000000"><em>Synchronize Across</em></font> when you have made changes in a hierarchical block and want the changes to be reflected across all instances of the block.</p>
+      <p><a name="1066556">Select </a><font color="#000000"><em>Synchronize Down</em></font> when you have made changes in a hierarchical block and want these changes to be reflected in the lowest&#45;level design.</p>
+      <h2><a name="1058253">Processing a design</a></h2>
+      <p><a name="1066563">After you have created your schematic design, you may need to process your design by adding information for tasks such as, simulation, synthesis, and board layout. This section covers some of the tasks that you can perform in OrCAD Capture while processing your design.</a></p>
+      <h3><a name="1076886">Adding part references</a></h3>
+      <p><a name="1076887">To be able to take your schematic design to your PCB board layout tool for packaging, you need to ensure that all the components in the design are uniquely identified with part references. In OrCAD Capture you can assign references either manually or by using the Annotate command.</a></p>
+      <p><a name="1069995">In the full adder design, annotation is not required at this stage because by default, unique part references are attached to all the components. This is so because by default, Capture adds part reference to all the components placed on the schematic page. If required, you can disable this feature by following the steps listed below.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070002">From the </a><font color="#000000"><em>Options</em></font> menu, choose <font color="#000000"><em>Preferences</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070006">In the Preferences dialog box, select the </a><font color="#000000"><em>Miscellaneous</em></font> tab.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070007">In the </a><font color="#000000"><em>Auto Reference </em></font>section, clear the <font color="#000000"><em>Automatically reference placed parts</em></font> check box.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070017">Click </a><font color="#000000"><em>OK</em></font> to save these settings.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1066958">In case the components in your design do not have unique part references attached to them, you must run the Annotate command.</a></p>
+      <p><a name="1070043">To assign unique part references to the components in the FULLADD design using the </a><font color="#000000"><em>Annotate</em></font> command, complete the following steps:</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1066627">In the project manager window, select the </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font> file.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1066676">Choose </a><font color="#000000"><em>Tools</em></font> - <font color="#000000"><em>Annotate</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1066677">Alternatively, you can click the Annotate <img src="images/annotate.gif" width="68" height="66" alt=""> button on the toolbar.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1066690">In the </a><font color="#000000"><em>Packaging</em></font> tab of the Annotate dialog box, specify whether you want the complete design or only a part of the design to be updated. Select the <font color="#000000"><em>Update entire design</em></font> option.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1066707">In the </a><font color="#000000"><em>Actions</em></font> section, do the following: </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1079947">Select the </a><font color="#000000"><em>Incremental reference update</em></font> option, if part references for all the parts are displayed as <font size="2" face="'Courier New'" color="#000000">?</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1079979">Select the </a><font color="#000000"><em>Unconditional reference update</em></font> option, if part references are assigned for all the parts, but the part references assigned are not unique.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1066735"> To know about other available options, see the dialog box help.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1066749">The full adder design is a complex hierarchical design. So select the </a><font color="#000000"><em>Update Occurrences</em></font> option in the<font color="#000000"><em> Mode</em></font> section.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1073840">When you select the </a><font color="#000000"><em>Update Occurrences</em></font> option, you get a warning message. Ignore this message because for all complex hierarchical designs, the occurrence mode is the preferred mode. The <font color="#000000"><em>Use Instances</em></font> option is shown as preferred because the project type is Analog or Mixed A&#47;D.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1066777">For the rest of the options, accept default values and click </a><font color="#000000"><em>OK</em></font> to save your settings.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1066809">The Undo Warning message appears. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073002">Click </a><font color="#000000"><em>Yes</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1066824">A message appears stating that the annotation will be done. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	8.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073008">Click </a><font color="#000000"><em>OK</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1066833">Your design is annotated and saved. You can view the value of updated cross reference designators on the schematic page. </a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="13.333333333333332">
+              <div>&nbsp;</div>
+            </td>
+            <td width="133.33333333333331">
+              <div>
+                <nobr>
+                  <strong><em><img src="images/caution.gif" alt="ParagraphBullet" border="0"></em></strong>
+                </nobr>
+              </div>
+            </td>
+            <td>
+              <strong><em><a name="1066842">If you select the </a><font color="#000000"><em>Annotate</em></font> command after generating the board layout netlist, you will receive an error message stating that annotating at this stage may cause the board to go out of sync with the schematic design. This may cause further backannotation problems. </em></strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h3><a name="1066892">Creating a cross reference report</a></h3>
+      <p><a name="1066909">Using Capture, you can create cross reference reports for all the parts in your design. A cross reference report contains information, such as part name, part reference, and the library from which the part was selected.</a></p>
+      <p><a name="1067002">To generate a cross reference report using Capture:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1067008">In the project manager window, select the </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font> file.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1080140">Choose </a><font color="#000000"><em>Tools</em></font> - <font color="#000000"><em>Cross Reference</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1067012">Alternatively, you can choose the cross reference parts <img src="images/chap2.4.1.27.png" width="30" height="26" alt=""> button from the toolbar.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1067020">In the Cross Reference Parts dialog box, ensure that the </a><font color="#000000"><em>Cross reference entire design</em></font> option is selected.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1067113">If you want to generate the cross reference report for a particular schematic folder, select the schematic folder before opening the Cross Reference Parts dialog box, and then select the cross reference selection option button.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1067153">In the </a><font color="#000000"><em>Mode</em></font> section, select the <font color="#000000"><em>Use occurrences</em></font> option. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1069965">Ignore the warning that is displayed when you select this mode. For complex hierarchical designs, you must always use the occurrence mode.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1067161">Specify the report that you want to be generated.</a></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1067311">If you want the report to be displayed automatically, select </a><font color="#000000"><em>View Output</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1067312">Click </a><font color="#000000"><em>OK</em></font> to generate the report.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1067316"><img src="images/1726_cross_ref_parts.png" width="409" height="433" alt=""><br></a></blockquote>
+      <p><a name="1067344">A sample output report is shown in the following figure.</a></p>
+      <blockquote><a name="1067345"><img src="images/1726_cross_ref_parts_report.png" width="761" height="455" alt=""><br></a></blockquote>
+      <h3><a name="1067725">Generating a bill of materials</a></h3>
+      <p><a name="1068228">After you have finalized your design, you can use Capture to generate a bill of materials (BOM). A bill of materials is a composite list of all the elements you need for your PCB design. Using Capture, you can generate a BOM report for electrical and as well as non&#45;electrical parts, such as screws. A standard BOM report includes the item, quantity, part reference, and part value.</a></p>
+      <p><a name="1068242">To generate a BOM report:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1068255">In the project manager window, select </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1068288">From the </a><font color="#000000"><em>Tools</em></font> menu, select <font color="#000000"><em>Bill of Materials</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1068295">To generate a BOM report for the complete design, ensure that the </a><font color="#000000"><em>Process entire design</em></font> option is selected.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1068365">For a complex hierarchical designs, the preferred mode is the occurrence mode. Therefore, select the </a><font color="#000000"><em>Use occurrences</em></font> option.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1069951">If you see a warning message stating that it is not the preferred mode, ignore the warning.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073915">Specify the name of the BOM report to be generated. For the current design, retain the default name, </a><font size="2" face="'Courier New'" color="#000000">FULLADD.BOM</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1073902">By default, the report is named as </a><font size="2" face="'Courier New'" color="#000000"><em>&#60;designname&#62;</em></font><font size="2" face="'Courier New'" color="#000000">.BOM</font>. </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1073938">Click </a><font color="#000000"><em>OK</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1068383">The BOM report is generated.</a></blockquote>
+      <h3><a name="1068206">Getting your design ready for simulation</a></h3>
+      <p><a name="1063396">To be able to simulate your design using PSpice, you must have the connectivity information and the simulation settings for the analysis type to be done on the circuit design. </a></p>
+      <p><a name="1063399">The simulation setting information is provided by a simulation profile (</a><font size="2" face="'Courier New'" color="#000000">*.SIM</font>). This section covers the steps to be followed in Capture for creating a simulation profile.</p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1079820">PSpice simulation require instance&#45;level annotation present on parts. In case of reference designator related error, ensure to annotate the design in Instance mode before PSpice simulation.</a></p>
+      <p><a name="1063431">For details about getting your design ready for simulation using PSpice, see </a><font color="#000000"><em>Chapter 3, Preparing a design for simulation</em></font> in the <font color="#000000"><em>PSpice User Guide</em></font>.</p>
+      <h4><a name="1063165">Creating a simulation profile from scratch</a></h4>
+      <p><a name="1063509">To create a new simulation profile to be used for transient analysis, complete the following steps:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063187">From the PSpice menu in Capture, choose </a><font color="#000000"><em>New Simulation Profile</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063231">In the New Simulation dialog box, specify the name of the new simulation profile as </a><font size="2" face="'Courier New'" color="#000000">TRAN</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063256">In the </a><font color="#000000"><em>Inherit From</em></font> drop&#45;down list, ensure that <font size="2" face="'Courier New'" color="#000000">none</font> is selected and click <font color="#000000"><em>Create</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1063264">The Simulation Setting dialog box appears with the </a><font color="#000000"><em>Analysis</em></font> tab selected.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063265">In the Analysis Type drop&#45;down list, </a><font size="2" face="'Courier New'" color="#000000">Time Domain (Transient)</font> is selected by default. Accept the default setting.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063271">Specify the options required for running a transient analysis. In the </a><font color="#000000"><em>Run To Time</em></font> text box, specify the time as <font size="2" face="'Courier New'" color="#000000">100u</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063572">Click </a><font color="#000000"><em>OK</em></font> to save your modifications and to close the dialog box. </td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1063595">You can now run transient analysis on the circuit. Note that the Simulation Setting dialog box also provides you with the options for running advanced analysis, such as Monte&nbsp;Carlo (Worst Case) analysis, Parametric analysis and Temperature analysis. You may choose to run these as and when required.</a></p>
+      <p><font color="#000000"><strong>Note: </strong></font><a name="1063741">To know details about each option in the Simulation Settings dialog box, click the </a><font color="#000000"><em>Help</em></font> button in the dialog box.</p>
+      <h4><a name="1063514">Creating a simulation profile from an existing profile</a></h4>
+      <p><a name="1063770">You can create a new simulation profile from an existing simulation profile. This section covers the steps for creating a new simulation profile, SWEEP, from an existing simulation profile, named TRAN.</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063786">From the </a><font color="#000000"><em>PSpice</em></font> menu, choose <font color="#000000"><em>New Simulation Profile</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063790">In the New Simulation dialog box, specify the profile name as </a><font size="2" face="'Courier New'" color="#000000">SWEEP</font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063791">In the </a><font color="#000000"><em>Inherit From</em></font> drop&#45;down list, select <font size="2" face="'Courier New'" color="#000000">FULLADD&#45;TRAN</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1063795">Click the </a><font color="#000000"><em>Create</em></font> button. </td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1063796">The Simulation Settings dialog box appears with the general settings inherited from the existing simulation profile. You can now modify the settings as required and run PSpice to simulate your circuit.</a></blockquote>
+      <h3><a name="1058350">Adding Layout&#45;specific properties</a></h3>
+      <p><a name="1058265">To be able to take your design to your PCB board layout tool for placement and routing, you need to add the footprint information for each of the components in your design.</a></p>
+      <p><a name="1069831">By default, some footprint information is available with all the components from the PSpice&#45;compatible libraries located at </a><font size="2" face="'Courier New'" color="#000000"><em>&#60;installation_directory&#62;</em></font><font size="2" face="'Courier New'" color="#000000">\tools\capture\library\pspice</font>. However, these footprints are not valid. You need to change these values to valid footprint values. You can add footprint information either at the schematic design stage in OrCAD Capture or during the board design stage in the PCB board layout tool. In this section, you will learn to add footprint information to the design components during the schematic design stage.</p>
+      <p><a name="1061460">To add footprint information to the OR gate, 7432, in the </a><font size="2" face="'Courier New'" color="#000000">FULLADD</font> schematic page, complete the following steps.</p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1061443">Right&#45;click the OR gate and select </a><font color="#000000"><em>Edit Properties</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1062770">The Property Editor window appears.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1076928">In the </a><font color="#000000"><em>Filter by</em></font> drop&#45;down list, select <font size="2" face="'Courier New'" color="#000000">Allegro PCB Designer</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1062793">To change the value of the PCB Footprint property, click the corresponding cell and type in the value as </a><font size="2" face="'Courier New'" color="#000000">SOIC14</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070335">Press </a><font size="2" face="'Courier New'" color="#000000">ENTER</font> or click <font color="#000000"><em>Apply</em></font>. </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1062879">Save the changes and close the Property Editor window.</a></td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1062880">Similarly, add PCB Footprint information for all the components in the design. The component name and the corresponding footprint information to be added is listed in the following table.</a></p>
+      <p><a name="1070395"><font color="#000000"><strong>For PCB Editor:</strong></font></a></p>
+      <p align="left"><a name="1075968">&nbsp;</a></p>
+      <table summary="" border="1" cellpadding="5" cellspacing="0" width="420">
+        <tr>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="180">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1075979">Component...</a></strong></font>
+            </p>
+          </td>
+          <td bgcolor="#CCCCCC" cellpadding="4" border="2" bordercolor="#000000" valign="middle" width="240">
+            <p>
+              <font face="Verdana, Arial, Helvetica, sans-serif" color="#003366"><strong><a name="1075981">PCB Footprint...</a></strong></font>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1075983">AND gate (7408)</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1075985"><font size="2" face="'Courier New'" color="#000000">SOIC14</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075987">OR gate (7432)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075989"><font size="2" face="'Courier New'" color="#000000">SOIC14</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075991">NOT gate(7404)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075993"><font size="2" face="'Courier New'" color="#000000">SOIC14</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075995">Resistance</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075997"><font size="2" face="'Courier New'" color="#000000">RES500</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" valign="top">
+            <p><a name="1075999">Connector(CON2)</a></p>
+          </td>
+          <td cellpadding="4" valign="top">
+            <p><a name="1076001"><font size="2" face="'Courier New'" color="#000000">JUMPER2</font></a></p>
+          </td>
+        </tr>
+        <tr>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1076003">Transistor(Q2N2222)</a></p>
+          </td>
+          <td cellpadding="4" border="1" bordercolor="#000000" valign="top">
+            <p><a name="1076005"><font size="2" face="'Courier New'" color="#000000">TO18</font></a></p>
+          </td>
+        </tr>
+      </table>
+      <p><a name="1075960">Your design is now ready to be taken to the PCB board layout tool for placement and routing.</a></p>
+      <h3><a name="1070120">Design rules check</a></h3>
+      <p><a name="1070121">After you have completed your design, it is recommended that you run design rules check (DRC) to isolate any unwanted design errors that might be there in the design.</a></p>
+      <p><a name="1070122">To run DRC on the full adder design, complete the following steps:</a></p>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	1.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070123">In the project manager window, select the design file, </a><font size="2" face="'Courier New'" color="#000000">fulladd.dsn</font>.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	2.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070124">From the </a><font color="#000000"><em>Tools</em></font> menu, select <font color="#000000"><em>Design Rules Check</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1070125">Alternatively, you can select the Design Rules Check button <img src="images/design_rules_check.gif" width="30" height="30" alt=""> from the toolbar. </a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	3.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070129">In the Design Rules Check dialog box, the </a><font color="#000000"><em>Design Rules Options</em></font> tab is selected by default. Specify your preferences.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1070130">By default, the </a><font color="#000000"><em>Check entire design</em></font> option is selected. To run DRC on the complete design, accept the default selection.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	4.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070131">Select the </a><font color="#000000"><em>Use occurrences</em></font> option in the <font color="#000000"><em>Mode</em></font> section.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><font color="#000000"><strong>Note: </strong></font><a name="1070132">For complex hierarchical designs, the occurrence mode is the preferred mode. Therefore, ignore the warning that is displayed when you select the </a><font color="#000000"><em>Use occurrences</em></font> option.</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	5.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070133">To run the DRC, select the </a><font color="#000000"><em>Check design rules</em></font> option in the <font color="#000000"><em>Action</em></font> section.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	6.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1077092">In the </a><font color="#000000"><em>Design Rules</em></font> section, select the type of rules to run, that is electrical and&#47;or physical rules.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	a.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1077186">Use the </a><font color="#000000"><em>Electrical Rules</em></font> tab to define electrical rules to test. Also define the report information to be generated from the <font color="#000000"><em>Reports </em></font>section.</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="37"
+              <div>&nbsp;</div>
+            </td>
+            <td width="26" align="left">
+              <div>
+                <nobr><font color="#000000"><strong>	b.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1077198">Similarly, use the </a><font color="#000000"><em>Physical Rules </em></font>tab to define physical rules to test. Also define the report information to be generated from the <font color="#000000"><em>Reports</em></font> section.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1070135">For the current design example, select </a><font color="#000000"><em>Check unconnected bus nets </em></font>(in the <font color="#000000"><em>Electrical Rules</em></font> tab) and <font color="#000000"><em>Report identical part references</em></font> (in the <font color="#000000"><em>Physical Rules</em></font> tab).</blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	7.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070136">Select the </a><font color="#000000"><em>View Output</em></font> check box.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1070137">When this check box is selected, the DRC report is opened automatically for viewing after the checks are complete.</a></blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	8.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070138">In the </a><font color="#000000"><em>Report File</em></font> text box, specify the name and the location of the DRC file to be created.</td>
+          </tr>
+        </table>
+      </div>
+      <blockquote><a name="1070139">For the current design example, specify the filename as </a><font size="2" face="'Courier New'" color="#000000">fulladd.drc</font>. </blockquote>
+      <div>
+        <table border="0" cellspacing="0" cellpadding="3" summary="">
+          <tr valign="baseline">
+            <td width="28.8" align="center">
+              <div>
+                <nobr><font color="#000000"><strong>	9.	</strong></font></nobr>
+              </div>
+            </td>
+            <td><a name="1070140">Click </a><font color="#000000"><em>OK</em></font>.</td>
+          </tr>
+        </table>
+      </div>
+      <p><a name="1070141">After the checks are done, the DRC report is displayed in the following format:</a></p>
+      <p align="left"><a name="1083465"><img src="images/1726_design_rules_check.png" width="531" height="331" alt=""><br></a></p>
+      <h2><a name="1062884">Summary</a></h2>
+      <p><a name="1062971">This chapter covered the steps for creating both flat and hierarchical designs using OrCAD Capture. In the process, you were introduced to basic design creation tasks, such as creating projects, adding libraries to a project, placing parts, and editing property values.</a></p>
+      <h2><a name="1062761">What's next</a></h2>
+      <p><a name="1055619">In the next chapter, </a><font color="#000000"><em>Simulating a design</em></font>, you will use PSpice for simulating the schematic design created in this chapter. You will be introduced to various types of simulations and their need in the PCB design cycle.</p>
+      <h2><a name="1055659">Recommended reading</a></h2>
+      <p><a name="1055687">For more information about OrCAD Capture, see </a><font color="#000000"><em>OrCAD Capture User Guide</em></font> and Capture online help.</p>
+    </div>
+    <br>
+    <a href="#pagetop">Return to top of page</a>
+    <hr>
+    <hr align="left">
+    <div style="text-align: left;">
+      <!-- Begin Buttons -->      <table width="650" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td height="20" width="59">
+<a href="javascript:openLibrary()"><img src="../support/nav2_library.gif" border="0" alt="View Library" height="20" width="59"></a>
+
+                    </td>
+<td height="20" width="73">
+<a href="flowtutTOC.html"><img src="../support/nav2_toc.gif" alt="Table of Contents" border="0"></a>
+</td>
+<td height="20" width="46">
+<a href="flowtutIX.html"><img src="../support/nav2_index.gif" border="0"></a>
+</td>
+
+          <td>
+            <a href="chap1.html"><img src="images/nav2_previous.gif" alt="Previous" border="0"></a>
+          </td>
+          <td>
+            <a href="chap3.html"><img src="images/nav_next.gif" alt="Next" border="0"></a>
+          </td>
+          <td>
+            <a>
+<a href="flowtut.pdf"><img src="../support/nav2_print.gif" border="0" alt="Open PDF to print book" height="20" width="114"></a>
+
+            </a>
+          </td>
+          <td height="20" width="61">
+<img src="../support/nav2_black.gif" border="0"  height="20" width="76">
+
+          </td>
+          <td height="20" width="76">
+<a href="/feedback.htm"><img src="../support/nav2_feedback.gif" border="0" alt="Email Comments" height="20" width="76"></a>
+
+          </td>
+          <td height="20" width="43">
+<a href="../cdsuser/help.html"><img src="../support/nav2_help.gif" border="0" alt="Help Using Documentation" height="20" width="43"></a>
+
+          </td>
+          <td height="20" width="37">
+<a href="/exitsearch.htm"><img src="../support/nav2_exit.gif" border="0" alt="Shut Down Cadence Documentation Server" height="20" width="37"></a>
+
+          </td>
+        </tr>
+      </table>
+      <!-- End Buttons -->
+    </div>
+    <br>
+    <font size="-1" >
+For support, see <a href="http://support.cadence.com" target="_blank">Cadence Online Support</a> service.</font>
+    <br>
+    <br>
+    <font size="-1" >
+      <i>Copyright &#169; 2018, <a href="http://www.cadence.com">Cadence Design Systems, Inc.</a></i>
+    </font>
+    <br>
+    <font size="-1" >
+All rights reserved.</font>
+    <br>
+    <br>
+  </body>
+</html>

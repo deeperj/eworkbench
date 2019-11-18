@@ -1,0 +1,140 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 16.2.0 p001Oct-16-2008 at 18:22:59 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='FULLADD';
+ POST_TIME='Sep 28 2008 21:55:15';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ J1 'CON2_JUMPER2_CON2':;
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):I03981@CONNECTOR.CON2.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):i03981@connector.\con2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q1 'Q2N2222_TO18_Q2N2222':;
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):I01318@BIPOLAR.Q2N2222.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):i01318@bipolar.\q2n2222.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R1 'R_RES500_1K':
+ VOLTAGE='RVMAX';
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):I011860@ANALOG.R.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):i011860@analog.\r.normal\(chips)',
+ VOLTAGE='RVMAX',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R2 'R_RES500_10K':
+ VOLTAGE='RVMAX';
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):I01186@ANALOG.R.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):i01186@analog.\r.normal\(chips)',
+ VOLTAGE='RVMAX',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U1 '7432_SOIC14_7432':;
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):I00664@7400.7432.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):i00664@\7400\.\7432.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='A';
+
+SECTION_NUMBER 2
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A1@FULLADD.HALFADD(SCH_1):I00141@7400.7432.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a1@fulladd.halfadd(sch_1):i00141@\7400\.\7432.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='B';
+
+SECTION_NUMBER 3
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A0@FULLADD.HALFADD(SCH_1):I00141@7400.7432.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a0@fulladd.halfadd(sch_1):i00141@\7400\.\7432.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='C';
+
+PART_NAME
+ U2 '7408_SOIC14_7408':;
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A1@FULLADD.HALFADD(SCH_1):I00048@7400.7408.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a1@fulladd.halfadd(sch_1):i00048@\7400\.\7408.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='A';
+
+SECTION_NUMBER 2
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A1@FULLADD.HALFADD(SCH_1):I00074@7400.7408.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a1@fulladd.halfadd(sch_1):i00074@\7400\.\7408.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='B';
+
+SECTION_NUMBER 3
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A1@FULLADD.HALFADD(SCH_1):I00100@7400.7408.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a1@fulladd.halfadd(sch_1):i00100@\7400\.\7408.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='C';
+
+SECTION_NUMBER 4
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A0@FULLADD.HALFADD(SCH_1):I00048@7400.7408.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a0@fulladd.halfadd(sch_1):i00048@\7400\.\7408.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='D';
+
+PART_NAME
+ U3 '7404_SOIC14_7404':;
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A1@FULLADD.HALFADD(SCH_1):I001780@7400.7404.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a1@fulladd.halfadd(sch_1):i001780@\7400\.\7404.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='A';
+
+SECTION_NUMBER 2
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A1@FULLADD.HALFADD(SCH_1):I00178@7400.7404.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a1@fulladd.halfadd(sch_1):i00178@\7400\.\7404.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='B';
+
+SECTION_NUMBER 3
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A0@FULLADD.HALFADD(SCH_1):I001780@7400.7404.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a0@fulladd.halfadd(sch_1):i001780@\7400\.\7404.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='C';
+
+SECTION_NUMBER 4
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A0@FULLADD.HALFADD(SCH_1):I00178@7400.7404.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a0@fulladd.halfadd(sch_1):i00178@\7400\.\7404.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='D';
+
+PART_NAME
+ U4 '7408_SOIC14_7408':;
+
+SECTION_NUMBER 1
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A0@FULLADD.HALFADD(SCH_1):I00074@7400.7408.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a0@fulladd.halfadd(sch_1):i00074@\7400\.\7408.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='A';
+
+SECTION_NUMBER 2
+ '@FULLADD.FULLADD(SCH_1):HALFADD_A0@FULLADD.HALFADD(SCH_1):I00100@7400.7408.NORMAL(CHIPS)':
+ C_PATH='@fulladd.fulladd(sch_1):halfadd_a0@fulladd.halfadd(sch_1):i00100@\7400\.\7408.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='B';
+
+END.

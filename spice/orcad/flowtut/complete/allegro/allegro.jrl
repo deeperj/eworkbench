@@ -1,0 +1,9 @@
+\t (00:01:48) allegro 17.2 S036 Windows SPB 64-bit Edition
+\t (00:01:48)     Journal start - Tue Mar 27 16:49:42 2018
+\t (00:01:48)         Host=PC-WASIQUER1 User=wasiquer Pid=15328 CPUs=4
+\t (00:01:48) CmdLine= D:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:01:48) 
+\d (00:01:48) Design opened: D:/framebooks_perforce_wasiquer/depot/techpubs/flowtut/1720/tutorial_example/flowtut/complete/allegro/fulladd.brd
+\i (00:01:48) etchedit 
+\i (00:01:54) exit 
+\t (00:01:54)     Journal end - Tue Mar 27 16:49:49 2018
