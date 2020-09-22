@@ -1,0 +1,22 @@
+* C:\Users\John\Dropbox\rtmp\src\cpp\embedded\orcad\test.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Oct 11 06:02:32 2018
+
+
+
+** Analysis setup **
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "test.net"
+.INC "test.als"
+
+
+.probe
+
+
+.END

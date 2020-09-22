@@ -1,6 +1,8 @@
 {
     "python.condaPath": "C:\\Users\\u1273400\\AppData\\Local\\Continuum\\Anaconda3\\Scripts",
-    "python.pythonPath": "C:\\Users\\u1273400\\AppData\\Local\\Continuum\\Anaconda3\\python.exe",
+    "python.pythonPath3": "/Users/johnalamina/anaconda3/bin/python",
     "python.condaPath2": "C:\\Users\\John\\Anaconda3\\Scripts",
     "python.pythonPath2": "C:\\Users\\John\\Anaconda3\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
 }

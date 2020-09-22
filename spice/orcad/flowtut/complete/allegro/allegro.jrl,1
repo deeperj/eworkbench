@@ -1,0 +1,17 @@
+\t (00:00:04) allegro 17.2 S036 Windows SPB 64-bit Edition
+\t (00:00:04)     Journal start - Tue Mar 27 16:46:36 2018
+\t (00:00:04)         Host=PC-WASIQUER1 User=wasiquer Pid=18632 CPUs=4
+\t (00:00:04) CmdLine= D:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:00:04) 
+   (00:00:04) Loading axlcore.cxt 
+   (00:00:06) Loading Allegro ECAD-MCAD Library Creator extensions from C:/Cadence/SPB_17.2/Allegro ECAD-MCAD Library Creator
+\t (00:00:06) Opening existing design...
+\i (00:00:07) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged fulladd
+\d (00:00:07) Design opened: D:/try/flowtut/complete/allegro/fulladd.brd
+\i (00:00:07) trapsize 393
+\i (00:00:08) trapsize 404
+\i (00:00:08) trapsize 393
+\i (00:00:08) trapsize 409
+\i (00:00:08) etchedit 
+\i (00:00:11) exit 
+\t (00:00:11)     Journal end - Tue Mar 27 16:46:43 2018

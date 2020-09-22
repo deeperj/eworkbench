@@ -1,0 +1,345 @@
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "SWEEP.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.STMLIB "../../../fulladd-pspicefiles/fulladd/tran/input.stl" 
+* From [PSPICE NETLIST] section of C:\WINDOWS\pspice.ini file:
+.lib "E:\OrCAD\OrCAD_16.0\tools\pspice\library\nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100u 0 
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\FULLADD.net" 
+
+
+
+**** INCLUDING FULLADD.net ****
+* source FULLADD
+.EXTERNAL OUTPUT CARRY_OUT
+X_HALFADD_A1_U2A         N00061 HALFADD_A1_N00424 HALFADD_A1_N00238 $G_DPWR
++  $G_DGND 7408 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_A1_U2B         N00071 HALFADD_A1_N00531 HALFADD_A1_N00258 $G_DPWR
++  $G_DGND 7408 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_A1_U2C         N00071 N00061 N00507 $G_DPWR $G_DGND 7408 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_A1_U1B         HALFADD_A1_N00238 HALFADD_A1_N00258 N00134 $G_DPWR
++  $G_DGND 7432 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_A1_U3B         N00071 HALFADD_A1_N00424 $G_DPWR $G_DGND 7404 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_A1_U3A         N00061 HALFADD_A1_N00531 $G_DPWR $G_DGND 7404 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+R_R2         N01594 N01630  1k  
+X_HALFADD_B1_U2D         N00103 HALFADD_B1_N00424 HALFADD_B1_N00238 $G_DPWR
++  $G_DGND 7408 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_B1_U4A         N00123 HALFADD_B1_N00531 HALFADD_B1_N00258 $G_DPWR
++  $G_DGND 7408 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_B1_U4B         N00123 N00103 N00564 $G_DPWR $G_DGND 7408 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_B1_U1C         HALFADD_B1_N00238 HALFADD_B1_N00258 N00071 $G_DPWR
++  $G_DGND 7432 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_B1_U3D         N00123 HALFADD_B1_N00424 $G_DPWR $G_DGND 7404 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_HALFADD_B1_U3C         N00103 HALFADD_B1_N00531 $G_DPWR $G_DGND 7404 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+Q_Q1         N01594 N01248 0 Q2N2222
+U_DSTM1         STIM(1,0) $G_DPWR $G_DGND N00061 IO_STM STIMULUS=Carry
+V_V1         N01630 0 5Vdc
+U_DSTM3         STIM(1,0) $G_DPWR $G_DGND N00103 IO_STM STIMULUS=X
+X_U1A         N00507 N00564 CARRY_OUT $G_DPWR $G_DGND 7432 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+R_R1         N00134 N01248  10k  
+U_DSTM2         STIM(1,0) $G_DPWR $G_DGND N00123 IO_STM STIMULUS=Y
+
+**** RESUMING SWEEP.cir ****
+.END
+
+
+**** Generated AtoD and DtoA Interfaces ****
+
+*
+* Analog/Digital interface for node N00134
+*
+* Moving X_HALFADD_A1_U1B.U1:OUT1 from analog node N00134 to new digital node N00134$DtoA
+X$N00134_DtoA1
++ N00134$DtoA
++ N00134
++ $G_DPWR
++ $G_DGND
++ DtoA_STD
++       PARAMS: DRVH=  96.4   DRVL= 104    CAPACITANCE=   0     
+*
+* Analog/Digital interface power supply subcircuits
+*
+X$DIGIFPWR 0 DIGIFPWR
+
+
+* D:\alok\work\DEMOCD\tutorial-flow\fullADD\fulladd-PSpiceFiles\FULLADD\TRAN\input.stl written on Tue Jan 06 10:17:22 2004
+* by Stimulus Editor -- Serial Number: 1111111111 -- Version 10.0.0
+;!Stimulus Get
+;! X Digital Y Digital Carry Digital
+;!Ok
+;!Plot Axis_Settings
+;!Xrange 0s 4ms
+;!AutoUniverse
+;!XminRes 1ns
+;!YminRes 1n
+;!Ok
+.STIMULUS Y STIM (1, 1) ;! CLOCK 0.5Meg 0.5 0 0
++   +0s 0
++   +1us 1
++   Repeat Forever
++      +1us 0
++      +1us 1
++   EndRepeat
+.STIMULUS X STIM (1, 1) ;! CLOCK 0.1Meg 0.5 0 0
++   +0s 0
++   +5us 1
++   Repeat Forever
++      +5us 0
++      +5us 1
++   EndRepeat
+.STIMULUS Carry STIM (1, 1) ;! CLOCK 1K 5e-005 1 0
++   +0s 1
++   +50ns 0
++   Repeat Forever
++      +0.99995ms 1
++      +50ns 0
++   EndRepeat
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         
+               NPN             
+       LEVEL    1            
+          IS   14.340000E-15 
+          BF  255.9          
+          NF    1            
+         VAF   74.03         
+         IKF     .2847       
+         ISE   14.340000E-15 
+          NE    1.307        
+          BR    6.092        
+          NR    1            
+         ISS    0            
+          RB   10            
+          RE    0            
+          RC    1            
+         CJE   22.010000E-12 
+         VJE     .75         
+         MJE     .377        
+         CJC    7.306000E-12 
+         VJC     .75         
+         MJC     .3416       
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          TF  411.100000E-12 
+         XTF    3            
+         VTF    1.7          
+         ITF     .6          
+          TR   46.910000E-09 
+         XTB    1.5          
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     Digital Input MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DIN74           
+      S0NAME 0               
+       S0TSW    3.500000E-09 
+       S0RLO    7.13         
+       S0RHI  389            
+      S1NAME 1               
+       S1TSW    5.500000E-09 
+       S1RLO  467            
+       S1RHI  200            
+      S2NAME X               
+       S2TSW    3.500000E-09 
+       S2RLO   42.9          
+       S2RHI  116            
+      S3NAME R               
+       S3TSW    3.500000E-09 
+       S3RLO   42.9          
+       S3RHI  116            
+      S4NAME F               
+       S4TSW    3.500000E-09 
+       S4RLO   42.9          
+       S4RHI  116            
+      S5NAME Z               
+       S5TSW    3.500000E-09 
+       S5RLO  200.000000E+03 
+       S5RHI  200.000000E+03 
+
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_08            D_32            D_04            
+      TPLHMN    7.000000E-09    4.000000E-09    4.800000E-09 
+      TPLHTY   17.500000E-09   10.000000E-09   12.000000E-09 
+      TPLHMX   27.000000E-09   15.000000E-09   22.000000E-09 
+      TPHLMN    4.800000E-09    5.600000E-09    3.200000E-09 
+      TPHLTY   12.000000E-09   14.000000E-09    8.000000E-09 
+      TPHLMX   19.000000E-09   22.000000E-09   15.000000E-09 
+
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_STD          
+        DRVL    0             104            
+        DRVH    0              96.4          
+       AtoD1                 AtoD_STD        
+       AtoD2                 AtoD_STD_NX     
+       AtoD3                 AtoD_STD        
+       AtoD4                 AtoD_STD_NX     
+       DtoA1 DtoA_STM        DtoA_STD        
+       DtoA2 DtoA_STM        DtoA_STD        
+       DtoA3 DtoA_STM        DtoA_STD        
+       DtoA4 DtoA_STM        DtoA_STD        
+      TSWHL1                    1.511000E-09 
+      TSWHL2                    1.487000E-09 
+      TSWHL3                    1.511000E-09 
+      TSWHL4                    1.487000E-09 
+      TSWLH1                    3.517000E-09 
+      TSWLH2                    3.564000E-09 
+      TSWLH3                    3.517000E-09 
+      TSWLH4                    3.564000E-09 
+       TPWRT  100.000000E+03  100.000000E+03 
+
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00134)    3.4620 (N01248)     .6982 (N01594)     .0450 (N01630)    5.0000     
+
+($G_DGND)    0.0000                   ($G_DPWR)    5.0000                   
+
+
+
+ DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE
+
+
+(HALFADD_B1_N00238) : 0               (  N00507) : 0                            
+
+(HALFADD_A1_N00424) : 1               (CARRY_OUT) : 0                           
+
+(HALFADD_B1_N00258) : 0               (  N00103) : 0     (  N00071) : 0         
+
+(  N00061) : 1     (  N00564) : 0     (HALFADD_A1_N00531) : 0                   
+
+(HALFADD_B1_N00424) : 1               (HALFADD_A1_N00238) : 1                   
+
+(N00134$DtoA) : 1  (HALFADD_A1_N00258) : 0                                      
+
+(HALFADD_B1_N00531) : 1               (  N00123) : 0     
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -4.955E-03
+    X$DIGIFPWR.VDPWR  -7.695E-03
+    X$DIGIFPWR.VDGND  -2.814E-04
+
+    TOTAL POWER DISSIPATION   6.32E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 07/23/08 12:07:02 ******* PSpice 16.2.0 (JUNE 2008) ****** ID# 0 ********
+
+ ** Profile: "FULLADD-SWEEP"  [ E:\OrCAD\unison\doc\flowtut\partial\fulladd-pspicefiles\fulladd\sweep.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .55
+

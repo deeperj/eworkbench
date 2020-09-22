@@ -1,0 +1,4 @@
+My first circuit
+v 1 0 dc 10
+r 1 0 5
+.end

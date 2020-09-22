@@ -1,0 +1,44 @@
+.subckt 7404  A Y
++	optional: DPWR=$G_DPWR DGND=$G_DGND
++	params: MNTYMXDLY=0 IO_LEVEL=0
+U1 inv DPWR DGND
++	A   Y 
++	D_04 IO_STD MNTYMXDLY={MNTYMXDLY} IO_LEVEL={IO_LEVEL} 
+.ends
+*
+.model Q2N2222	NPN(Is=14.34f Xti=3 Eg=1.11 Vaf=74.03 Bf=255.9 Ne=1.307
++		Ise=14.34f Ikf=.2847 Xtb=1.5 Br=6.092 Nc=2 Isc=0 Ikr=0 Rc=1
++		Cjc=7.306p Mjc=.3416 Vjc=.75 Fc=.5 Cje=22.01p Mje=.377 Vje=.75
++		Tr=46.91n Tf=411.1p Itf=.6 Vtf=1.7 Xtf=3 Rb=10)
+*		National	pid=19		case=TO18
+*		88-09-07 bam	creation
+*$
+*
+* RAD: PRERAD
+* TEMP= -55
+*
+* THE FOLLOWING IS AN INDICATION OF SATURATED SWITCHING TIME ACCURACY FOR THIS
+* MODEL:
+*
+* IC(NOMINAL) = 20MA   FB=10
+*
+*      MEASURED     SIMULATED
+*TON   45NS         40NS
+*TOFF  116NS        110NS
+*
+.subckt 7432  A B Y
++	optional: DPWR=$G_DPWR DGND=$G_DGND
++	params: MNTYMXDLY=0 IO_LEVEL=0
+U1 or(2) DPWR DGND
++	A B   Y 
++	D_32 IO_STD MNTYMXDLY={MNTYMXDLY} IO_LEVEL={IO_LEVEL} 
+.ends
+*
+.subckt 7408  A B Y
++	optional: DPWR=$G_DPWR DGND=$G_DGND
++	params: MNTYMXDLY=0 IO_LEVEL=0
+U1 and(2) DPWR DGND
++	A B   Y 
++	D_08 IO_STD MNTYMXDLY={MNTYMXDLY} IO_LEVEL={IO_LEVEL} 
+.ends
+*

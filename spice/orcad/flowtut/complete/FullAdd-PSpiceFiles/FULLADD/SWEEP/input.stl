@@ -1,0 +1,32 @@
+* D:\alok\work\DEMOCD\tutorial-flow\fullADD\fulladd-PSpiceFiles\FULLADD\TRAN\input.stl written on Tue Jan 06 10:17:22 2004
+* by Stimulus Editor -- Serial Number: 1111111111 -- Version 10.0.0
+;!Stimulus Get
+;! X Digital Y Digital Carry Digital
+;!Ok
+;!Plot Axis_Settings
+;!Xrange 0s 4ms
+;!AutoUniverse
+;!XminRes 1ns
+;!YminRes 1n
+;!Ok
+.STIMULUS Y STIM (1, 1) ;! CLOCK 0.5Meg 0.5 0 0
++   +0s 0
++   +1us 1
++   Repeat Forever
++      +1us 0
++      +1us 1
++   EndRepeat
+.STIMULUS X STIM (1, 1) ;! CLOCK 0.1Meg 0.5 0 0
++   +0s 0
++   +5us 1
++   Repeat Forever
++      +5us 0
++      +5us 1
++   EndRepeat
+.STIMULUS Carry STIM (1, 1) ;! CLOCK 1K 5e-005 1 0
++   +0s 1
++   +50ns 0
++   Repeat Forever
++      +0.99995ms 1
++      +50ns 0
++   EndRepeat
