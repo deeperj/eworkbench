@@ -1,0 +1,7 @@
+My first circuit
+v1 1 0
+r1 1 0 10k
+.dc v1 0 9 1.5
+.print dc v(1,0)
+.print dc i(r1)
+.end
