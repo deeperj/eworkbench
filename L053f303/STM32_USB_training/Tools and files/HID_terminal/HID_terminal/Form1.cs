@@ -14,10 +14,10 @@ namespace HID_terminal
 {
     public partial class Form1 : Form
     {
-         HidDeviceLoader loader;
-         HidDevice device;
-         HidStream stream;
-         byte []bytes;
+        HidDeviceLoader loader;
+        HidDevice device;
+        HidStream stream;
+        byte []bytes;
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +32,6 @@ namespace HID_terminal
             }
             
         }
- 
 
         private void button_send_Click(object sender, EventArgs e)
         {
@@ -66,7 +65,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Error); Environment.Exit(1);
                     {
                         this.BeginInvoke(new EventHandler(DoUpdate));
                     }
-           
         }
         }
         private void DoUpdate(object sender, System.EventArgs e)
@@ -74,7 +72,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Error); Environment.Exit(1);
             string s = Encoding.UTF8.GetString(bytes, 2, 2+bytes[1]);
             textBoxRecieved.AppendText(s);
             textBoxRecieved.AppendText("\n");
-
         }
     }
 }
