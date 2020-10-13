@@ -1,0 +1,31 @@
+04:04:45:650 : Serial Port COM9 is successfully opened.
+04:04:45:656 : Port configuration: parity = even, baudrate = 115200, data-bit = 8,                     stop-bit = 1.0, flow-control = off
+04:04:45:669 : Activating device: OK
+04:04:45:674 : Chip ID: 0x450 
+04:04:45:686 : BootLoader protocol version: 3.1
+04:04:45:880 : Database: Config 0 is active.
+04:04:47:248 : UPLOADING OPTION BYTES DATA ...
+04:04:47:248 :   Bank          : 0x00
+04:04:47:249 :   Address       : 0x5200201c
+04:04:47:249 :   Size          : 308 Bytes
+04:04:47:254 : UPLOADING OPTION BYTES DATA ...
+04:04:47:255 :   Bank          : 0x00
+04:04:47:255 :   Address       : 0x5200201c
+04:04:47:255 :   Size          : 308 Bytes
+04:04:48:076 : UPLOADING ...
+04:04:48:077 :   Size          : 1024 Bytes
+04:04:48:077 :   Address       : 0x8000000
+04:04:48:078 : Read progress:
+04:04:49:221 : Data read successfully
+04:04:49:221 : Time elapsed during the read operation is: 00:00:01.145
+04:07:22:019 : Error: Read Serial Response timed out.
+04:07:22:022 : Response received from device: NACK
+04:07:22:022 : Error: GETID command not acknowledged!
+04:07:22:022 : Reemission of GetID command
+04:07:22:024 : Response received from device: NACK
+04:07:22:024 : Error: GETID command not acknowledged!
+04:07:22:024 : Reemission of GetID command
+04:07:22:034 : Response received from device: NACK
+04:07:22:034 : Error: GETID command not acknowledged!
+04:07:22:035 : Warning: Connection to device 0x450 is lost
+04:07:22:865 : Disconnected from device.
