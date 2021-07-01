@@ -5,4 +5,9 @@
     "python.pythonPath2": "C:\\Users\\John\\Anaconda3\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
+    "files.associations": {
+        "ostream": "cpp",
+        "xstring": "cpp",
+        "chrono": "cpp"
+    },
 }

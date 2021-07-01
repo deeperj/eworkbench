@@ -61,7 +61,7 @@
 #include "supporting_functions.h"
 
 /* Used as a loop counter to create a very crude delay. */
-#define mainDELAY_LOOP_COUNT		( 0xffffff )
+#define mainDELAY_LOOP_COUNT		( 0xf )
 
 /* The task functions. */
 void vTask1( void *pvParameters );
@@ -89,7 +89,7 @@ int main( void )
 	will only return if there was not enough FreeRTOS heap memory available to
 	create the Idle and (if configured) Timer tasks.  Heap management, and
 	techniques for trapping heap exhaustion, are described in the book text. */
-	for( ;; );
+	for( int i=0;i<100;i++ );
 	return 0;
 }
 /*-----------------------------------------------------------*/
@@ -100,7 +100,7 @@ const char *pcTaskName = "Task 1 is running\r\n";
 volatile uint32_t ul;
 
 	/* As per most tasks, this task is implemented in an infinite loop. */
-	for( ;; )
+	for(int i = 0; i < 10; i++)
 	{
 		/* Print out the name of this task. */
 		vPrintString( pcTaskName );
@@ -122,7 +122,7 @@ const char *pcTaskName = "Task 2 is running\r\n";
 volatile uint32_t ul;
 
 	/* As per most tasks, this task is implemented in an infinite loop. */
-	for( ;; )
+	for(int i=0 ;i<10;i++ )
 	{
 		/* Print out the name of this task. */
 		vPrintString( pcTaskName );
